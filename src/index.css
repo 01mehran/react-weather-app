@@ -1,0 +1,18 @@
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import "tailwindcss";
+
+@font-face {
+  font-family: "openSans";
+  src: url("@fonts/OpenSans-VariableFont_wdth,wght.ttf") format("ttf");
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-openSans: "Open Sans", "sans-serif";
+
+  --color-navy: #0f284c;
+  --color-lightBlue: #caf7ff;
+  --color-blue: #00dfc5;
+}
