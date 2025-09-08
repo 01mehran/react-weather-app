@@ -12,7 +12,15 @@
 @theme {
   --font-openSans: "Open Sans", "sans-serif";
 
-  --color-navy: #0f284c;
-  --color-lightBlue: #caf7ff;
-  --color-blue: #00dfc5;
+  --breakpoint-small: 22rem;
+
+  --color-navy: oklch(0.2791 0.0734 257.84);
+  --color-lightBlue: oklch(0.9472 0.0473 209.57);
+  --color-blue: oklch(0.8098 0.146596 180.3394);
+}
+
+@layer base {
+  body {
+    @apply font-openSans;
+  }
 }

@@ -1,5 +1,9 @@
-import calender from "./calendar.svg";
+import logo from "./logo.png"
+import user from "./user 2.svg"
+import lock from "./unlock 1.svg"
 
 export const useImages = {
-  calender,
+  logo,
+  user,
+  lock
 };
