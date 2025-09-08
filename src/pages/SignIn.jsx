@@ -1,3 +1,6 @@
+// Libraries;
+import { Link } from "react-router-dom";
+
 // Components;
 import { Input } from "@components/Input";
 
@@ -41,7 +44,7 @@ export const SignIn = () => {
           </div>
           <button
             type="submit"
-            className="bg-blue text-black w-[50vw] small:w-54  rounded-[20px] font-medium tracking-wider mx-auto block text-[5.5vw] small:text-xl py-1 cursor-pointer"
+            className="bg-blue text-navy w-[50vw] small:w-54  rounded-[20px] font-bold tracking-wider mx-auto block text-[5.5vw] small:text-xl py-2 cursor-pointer transition duration-200 hover:translate-y-0.5"
           >
             Sign In
           </button>
@@ -52,9 +55,12 @@ export const SignIn = () => {
           </span>
           <div className="text-[5vw] small:text-base font-normal text-lightBlue tracking-wide">
             Don’t have an account ?
-            <span className="text-blue tracking-wider px-2  small:text-base font-normal">
+            <Link
+              to={"/signUp"}
+              className="text-blue tracking-wider px-2  small:text-base font-normal"
+            >
               Sign up
-            </span>
+            </Link>
           </div>
         </footer>
       </div>
