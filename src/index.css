@@ -17,10 +17,29 @@
   --color-navy: oklch(0.2791 0.0734 257.84);
   --color-lightBlue: oklch(0.9472 0.0473 209.57);
   --color-blue: oklch(0.8098 0.146596 180.3394);
+  --color-navy-light: oklch(0.4978 0.0578 246.52 / 10.2%);
+  --color-navy-dark: oklch(0.3012 0.0709 257.21);
 }
 
 @layer base {
   body {
     @apply font-openSans;
   }
+  ::-webkit-scrollbar {
+    @apply hidden;
+  }
 }
+
+@layer components {
+  .landing-details-box {
+    @apply text-lightBlue text-center px-5 py-4 space-y-2 w-1/3 bg-navy-dark
+  }
+}
+
+/* hex colors;
+1_0f284c
+2_caf7ff 
+3_01dfc5
+4_4766821A
+5_152E51 
+*/

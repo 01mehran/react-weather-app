@@ -9,15 +9,15 @@ import { useImages } from "@images/useImages";
 
 export const SignIn = () => {
   return (
-    <section className="bg-navy h-screen flex justify-center items-center">
+    <section className="bg-navy h-screen flex justify-center ">
       {/* container */}
-      <div className="w-[500px] border-purple-300 ">
+      <div className="w-[500px] border-purple-300 pt-12 ">
         {/* Logo */}
         <header className="w-full">
           <img src={useImages.logo} alt="logo" className="m-auto" />
         </header>
         {/* Inputs; */}
-        <main className="space-y-5 w-full px-5 small:px-10 ">
+        <main className="space-y-5 w-full px-5">
           <Input
             id="username"
             label="Username"
