@@ -4,6 +4,14 @@ import lock from "./unlock 1.svg";
 import google from "./Google.svg";
 import facebook from "./Facebook.svg";
 import twitter from "./Twitter.svg";
+import menu from "./menu.svg";
+import search from "./search.svg";
+import home from "./homepage.svg";
+import calendar from "./calendar.svg";
+import waterlevel from "./waterlevel.svg";
+import radar from "./radar.svg";
+import emergency from "./emergency-call.svg";
+import cloud from "./cloud.svg";
 
 export const useImages = {
   logo,
@@ -12,4 +20,12 @@ export const useImages = {
   google,
   facebook,
   twitter,
+  menu,
+  search,
+  home,
+  calendar,
+  waterlevel,
+  radar,
+  emergency,
+  cloud
 };
