@@ -1,6 +1,6 @@
 export const ToggleButton = () => {
   return (
-    <div className="text-center mt-5">
+    <div className="text-center mt-12">
       <label className="inline-flex items-center cursor-pointer">
         <input type="checkbox" value="" className="sr-only peer" />
         <div
