@@ -2,7 +2,7 @@ import { useImages } from "@images/useImages";
 
 export const Footer = () => {
   return (
-    <footer className="fixed bottom-0 px-4 left-0 right-0  bg-navy-light flex justify-between items-center">
+    <footer className="fixed bottom-0 px-4 left-0 right-0  bg-navy-dark flex justify-between items-center">
       <img src={useImages.home} alt="homeIcon" className=" cursor-pointer" />
       <img
         src={useImages.calendar}

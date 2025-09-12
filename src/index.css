@@ -19,6 +19,7 @@
   --color-blue: oklch(0.8098 0.146596 180.3394);
   --color-navy-light: oklch(0.4978 0.0578 246.52 / 10.2%);
   --color-navy-dark: oklch(0.3012 0.0709 257.21);
+  --color-navy-light-2: oklch(0.3005 0.0839 257.57);
 }
 
 @layer base {
@@ -32,7 +33,7 @@
 
 @layer components {
   .landing-details-box {
-    @apply text-lightBlue text-center px-5 py-4 space-y-2 w-1/3 bg-navy-dark
+    @apply text-lightBlue bg-navy-dark w-1/3 space-y-2 px-5 py-4 text-center;
   }
 }
 
@@ -42,4 +43,5 @@
 3_01dfc5
 4_4766821A
 5_152E51 
+0f2D57 
 */
