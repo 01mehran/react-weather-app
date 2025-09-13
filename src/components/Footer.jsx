@@ -1,3 +1,4 @@
+// Image;
 import { useImages } from "@images/useImages";
 
 export const Footer = () => {
@@ -11,7 +12,7 @@ export const Footer = () => {
       />
       <img
         src={useImages.waterlevel}
-        alt=""
+        alt="waterlevelIcon"
         className="transform -translate-y-2 translate-x-2  cursor-pointer"
       />
       <img src={useImages.radar} alt="radarIcon" className="  cursor-pointer" />

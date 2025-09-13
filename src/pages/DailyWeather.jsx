@@ -1,6 +1,10 @@
+// Components;
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+
+// Image;
 import { useImages } from "@images/useImages";
+
 export const DailyWeather = () => {
   return (
     <section className="bg-navy flex h-dvh flex-col overflow-hidden">
