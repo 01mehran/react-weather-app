@@ -20,6 +20,16 @@ import dashboardwidget from "./widget.svg";
 import dashboardsetting from "./setting.svg";
 import dashboardfeedback from "./feedback.svg";
 import dashboardquestion from "./question.svg";
+import arrow from "./arrow.svg";
+import share from "./Share.svg";
+import addPhoto from "./add-photo.svg";
+import info from "./info.svg";
+import email from "./email.svg";
+import share2 from "./share2.svg";
+import user2 from "./user.png";
+import rightArrow from "./right-arrow.svg";
+import help from "./help.svg";
+import logout from "./logout.svg";
 
 export const useImages = {
   logo,
@@ -44,4 +54,14 @@ export const useImages = {
   dashboardsetting,
   dashboardfeedback,
   dashboardquestion,
+  arrow,
+  share,
+  addPhoto,
+  info,
+  email,
+  share2,
+  user2,
+  rightArrow,
+  help,
+  logout,
 };
