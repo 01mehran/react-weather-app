@@ -8,6 +8,8 @@ import { SignUp } from "./pages/SignUp";
 import { Landing } from "./pages/Landing";
 import { DailyWeather } from "./pages/DailyWeather";
 import { UserProfile } from "./pages/UserProfile";
+import { ContactUs } from "./pages/ContactUs";
+
 
 // Components;
 import { Dashboard } from "@components/Dashboard";
@@ -23,6 +25,7 @@ export const App = () => {
         <Route path="/landingPage" element={<Landing />} />
         <Route path="/dailyWeather" element={<DailyWeather />} />
         <Route path="/userProfile" element={<UserProfile />} />
+        <Route path="/contactUs" element={<ContactUs />} />
       </Routes>
     </QueryClientProvider>
   );
