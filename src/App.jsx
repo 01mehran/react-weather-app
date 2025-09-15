@@ -13,6 +13,7 @@ import { ContactUs } from "./pages/ContactUs";
 
 // Components;
 import { Dashboard } from "@components/Dashboard";
+import { AboutUs } from "./pages/AboutUs";
 
 export const App = () => {
   const query = new QueryClient();
@@ -26,6 +27,7 @@ export const App = () => {
         <Route path="/dailyWeather" element={<DailyWeather />} />
         <Route path="/userProfile" element={<UserProfile />} />
         <Route path="/contactUs" element={<ContactUs />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
       </Routes>
     </QueryClientProvider>
   );
