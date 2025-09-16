@@ -9,6 +9,7 @@ import { Landing } from "./pages/Landing";
 import { DailyWeather } from "./pages/DailyWeather";
 import { UserProfile } from "./pages/UserProfile";
 import { ContactUs } from "./pages/ContactUs";
+import { Setting } from "./pages/Setting";
 
 
 // Components;
@@ -28,6 +29,7 @@ export const App = () => {
         <Route path="/userProfile" element={<UserProfile />} />
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/setting" element={<Setting />} />
       </Routes>
     </QueryClientProvider>
   );
