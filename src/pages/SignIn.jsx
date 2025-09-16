@@ -1,7 +1,7 @@
 // Libraries;
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // Components;
 import { Input } from "@components/Input";
@@ -14,13 +14,27 @@ import { useImages } from "@images/useImages";
 import { Login } from "@/services/Login";
 
 export const SignIn = () => {
-  
   const [form, setForm] = useState({
     username: "",
     password: "",
   });
+  const [remember, setRemember] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedUserName = localStorage.getItem("username");
+    const savedPassword = localStorage.getItem("password");
+
+    if (savedUserName && savedPassword) {
+      setForm((prev) => ({
+        ...prev,
+        username: savedUserName,
+        password: savedPassword,
+      }));
+      setRemember(true);
+    }
+  }, []);
 
   const mutation = useMutation({
     mutationFn: Login,
@@ -55,12 +69,15 @@ export const SignIn = () => {
       return;
     }
 
-    mutation.mutate(form);
+    if (remember) {
+      localStorage.setItem("username", form.username);
+      localStorage.setItem("password", form.password);
+    } else {
+      localStorage.removeItem("username");
+      localStorage.removeItem("password");
+    }
 
-    setForm({
-      username: "",
-      password: "",
-    });
+    mutation.mutate(form);
   };
 
   return (
@@ -109,7 +126,9 @@ export const SignIn = () => {
               <input
                 type="checkbox"
                 id="rePassword"
-                className="cursor-pointer"
+                className="cursor-pointer accent-blue"
+                checked={remember}
+                onChange={(e) => setRemember(e.target.checked)}
               />
               <label
                 htmlFor="rePassword"
