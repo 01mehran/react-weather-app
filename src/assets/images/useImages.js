@@ -30,6 +30,8 @@ import user2 from "./user.png";
 import rightArrow from "./right-arrow.svg";
 import help from "./help.svg";
 import logout from "./logout.svg";
+import telephone from "./telephone.svg";
+import letter from "./letter.svg";
 
 export const useImages = {
   logo,
@@ -64,4 +66,6 @@ export const useImages = {
   rightArrow,
   help,
   logout,
+  telephone,
+  letter,
 };

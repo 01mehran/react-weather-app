@@ -16,6 +16,7 @@ import { Setting } from "./pages/Setting";
 import { Dashboard } from "@components/Dashboard";
 import { AboutUs } from "./pages/AboutUs";
 import { ScreenSplash } from "./components/ScreenSplash";
+import { EmergencyContact } from "./pages/EmergencyContact";
 
 export const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -23,7 +24,7 @@ export const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 3000);
+    }, 1500);
     return () => clearInterval(timer);
   }, []);
 
@@ -44,6 +45,7 @@ export const App = () => {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/setting" element={<Setting />} />
+          <Route path="/emergencyContact" element={<EmergencyContact />} />
         </Routes>
       )}
     </QueryClientProvider>
