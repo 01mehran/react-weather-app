@@ -1,11 +1,21 @@
+// Libraries;
+import { useState } from "react";
+
 // Components;
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { HistoryWeatherModal } from "@components/HistoryWeatherModal";
 
 // Image;
 import { useImages } from "@images/useImages";
 
 export const DailyWeather = () => {
+  const [isHistoryOpen, setIshistoryOpen] = useState(false);
+
+  const toggleHistoryModal = () => {
+    setIshistoryOpen((his) => !his);
+  };
+
   return (
     <section className="bg-navy flex h-dvh flex-col overflow-hidden">
       <Header />
@@ -29,7 +39,10 @@ export const DailyWeather = () => {
         <section className="flex flex-col gap-4">
           {/* History button */}
           <div>
-            <button className="border-blue small:text-sm text-lightBlue float-right w-fit cursor-pointer rounded-full border-2 px-6 py-2 text-right text-[4vw] font-normal tracking-wider">
+            <button
+              onClick={toggleHistoryModal}
+              className="border-blue small:text-sm text-lightBlue float-right w-fit cursor-pointer rounded-full border-2 px-6 py-2 text-right text-[4vw] font-normal tracking-wider"
+            >
               History
             </button>
           </div>
@@ -71,6 +84,11 @@ export const DailyWeather = () => {
         </section>
       </main>
       <Footer />
+
+      <HistoryWeatherModal
+        isHistoryOpen={isHistoryOpen}
+        toggleHistoryModal={toggleHistoryModal}
+      />
     </section>
   );
 };
