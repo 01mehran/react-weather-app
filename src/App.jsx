@@ -17,6 +17,7 @@ import { Dashboard } from "@components/Dashboard";
 import { AboutUs } from "./pages/AboutUs";
 import { ScreenSplash } from "./components/ScreenSplash";
 import { EmergencyContact } from "./pages/EmergencyContact";
+import { HourlyWeather } from "./pages/HourlyWeather";
 
 export const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -46,6 +47,7 @@ export const App = () => {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/emergencyContact" element={<EmergencyContact />} />
+          <Route path="/hourlyWeather" element={<HourlyWeather />} />
         </Routes>
       )}
     </QueryClientProvider>

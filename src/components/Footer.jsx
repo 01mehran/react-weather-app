@@ -32,9 +32,13 @@ export const Footer = () => {
         />
       </Link>
 
-      <Link to="">
+      <Link to="/hourlyWeather">
         <img
-          src={useImages.waterlevel}
+          src={
+            currentPath === "/hourlyWeather"
+              ? useImages.waterlevel2
+              : useImages.waterlevel
+          }
           alt="waterlevelIcon"
           className="translate-x-2 -translate-y-2 transform cursor-pointer"
         />

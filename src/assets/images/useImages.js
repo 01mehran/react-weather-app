@@ -32,7 +32,16 @@ import help from "./help.svg";
 import logout from "./logout.svg";
 import telephone from "./telephone.svg";
 import letter from "./letter.svg";
-
+import home2 from "./homepage2.svg";
+import calendar2 from "./calendar2.svg";
+import waterlevel2 from "./waterlevel2.svg";
+import emergency2 from "./emergency-call2.svg";
+import hourlyBg from "./hourlyBg.png";
+import cloudy_1 from "./cloudy-1.svg";
+import cloudy_2 from "./cloudy-2.svg";
+import cloudy_3 from "./cloudy-3.svg";
+import cloudy_4 from "./cloudy-4.svg";
+import cloudy_6 from "./cloudy-6.svg";
 export const useImages = {
   logo,
   user,
@@ -68,4 +77,14 @@ export const useImages = {
   logout,
   telephone,
   letter,
+  hourlyBg,
+  home2,
+  calendar2,
+  waterlevel2,
+  emergency2,
+  cloudy_1,
+  cloudy_2,
+  cloudy_3,
+  cloudy_4,
+  cloudy_6,
 };

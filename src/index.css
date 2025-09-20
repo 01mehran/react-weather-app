@@ -20,7 +20,8 @@
   --color-navy-light: oklch(0.4978 0.0578 246.52 / 10.2%);
   --color-navy-dark: oklch(0.3012 0.0709 257.21);
   --color-navy-light-2: oklch(0.3005 0.0839 257.57);
-  --color-blue2: #00DFC5;
+  --color-blue2: oklch(0.8098 0.146596 180.3394);
+  --color-navy-lighten: oklch(0.3936 0.1093 264.74);
 }
 
 @layer base {
@@ -44,4 +45,6 @@
 4_4766821A
 5_152E51 
 0f2D57 
+#00DFC5;
+#284280;
 */
