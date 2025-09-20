@@ -6,12 +6,13 @@ export const EmergencyContact = () => {
   const { toggleDashboard } = useToggleDashboard();
 
   return (
+    // bg-navy-light flex items-center justify-between px-4 py-2
     <section className="bg-navy flex min-h-dvh flex-col">
-      <header className="bg-navy-light-2 flex items-center justify-between px-6 py-6">
+      <header className="bg-navy-light-2 flex items-center justify-between px-4 py-2">
         <img
           src={useImages.menu}
           alt="arrowIcon"
-          className="max-h-[28px] max-w-[28px] cursor-pointer"
+          className="w-8 cursor-pointer"
           onClick={toggleDashboard}
         />
         <h1 className="text-lightBlue small:text-[6vw] text-[5vw] font-bold tracking-wider">
@@ -20,12 +21,9 @@ export const EmergencyContact = () => {
         <img src={useImages.search} alt="searchIcon" />
       </header>
 
-      <div className="border-blue mx-auto mt-6 mr-6 flex w-[140px] items-center rounded-full border">
-        <button className="bg-blue text-navy w-1/2 cursor-pointer rounded-full px-1 py-1 text-center text-[11px] font-normal">
+      <div className="mx-auto mt-6 mr-6">
+        <button className="small:text-lg text-blue py-2 text-[4vw] font-bold tracking-wider uppercase">
           CONTACTS
-        </button>
-        <button className="text-lightBlue w-1/2 cursor-pointer rounded-full px-1 py-1 text-center text-[11px] font-normal">
-          TIPS
         </button>
       </div>
 

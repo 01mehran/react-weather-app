@@ -10,7 +10,7 @@ export const HoursWeather = () => {
         <div className="flex h-2/3 w-fit flex-col items-center py-3">
           <div className="h-[3%] w-0.5 bg-gray-400"></div>
           <div className="flex flex-col justify-center py-2">
-            <img src={useImages.cloudy_1} alt="cloud" className="h-12 w-12" />
+            <img src={useImages.cloudy_1} alt="cloud" className="h-12 w-12" loading="lazy"/>
             <span className="text-lightBlue/80">12°</span>
           </div>
 
@@ -24,7 +24,7 @@ export const HoursWeather = () => {
         <div className="flex h-2/3 w-fit flex-col items-center py-3">
           <div className="h-[25%] w-0.5 bg-gray-400"></div>
           <div className="flex flex-col justify-center py-2">
-            <img src={useImages.cloudy_2} alt="cloud" className="h-12 w-12" />
+            <img src={useImages.cloudy_2} alt="cloud" className="h-12 w-12" loading="lazy"/>
             <span className="text-lightBlue/80 -translate-y-2">30°</span>
           </div>
 
@@ -38,7 +38,7 @@ export const HoursWeather = () => {
         <div className="flex h-2/3 w-fit flex-col items-center py-3">
           <div className="h-[42%] w-0.5 bg-gray-400"></div>
           <div className="flex flex-col justify-center py-2">
-            <img src={useImages.cloudy_3} alt="cloud" className="h-12 w-12" />
+            <img src={useImages.cloudy_3} alt="cloud" className="h-12 w-12" loading="lazy"/>
             <span className="text-lightBlue/80">27°</span>
           </div>
 
@@ -52,7 +52,7 @@ export const HoursWeather = () => {
         <div className="flex h-2/3 w-fit flex-col items-center py-3">
           <div className="h-[33%] w-0.5 bg-gray-400"></div>
           <div className="flex flex-col justify-center py-2">
-            <img src={useImages.cloudy_4} alt="cloud" className="h-12 w-12" />
+            <img src={useImages.cloudy_4} alt="cloud" className="h-12 w-12" loading="lazy"/>
             <span className="text-lightBlue/80">24°</span>
           </div>
 
@@ -66,7 +66,7 @@ export const HoursWeather = () => {
         <div className="flex h-2/3 w-fit flex-col items-center py-3">
           <div className="h-[28%] w-0.5 bg-gray-400"></div>
           <div className="flex flex-col justify-center py-2">
-            <img src={useImages.cloudy_2} alt="cloud" className="h-12 w-12" />
+            <img src={useImages.cloudy_2} alt="cloud" className="h-12 w-12" loading="lazy"/>
             <span className="text-lightBlue/80">29°</span>
           </div>
 
@@ -80,7 +80,7 @@ export const HoursWeather = () => {
         <div className="flex h-2/3 w-fit flex-col items-center py-3">
           <div className="h-4 w-0.5 bg-gray-400"></div>
           <div className="flex flex-col justify-center py-2">
-            <img src={useImages.cloudy_6} alt="cloud" className="h-12 w-12" />
+            <img src={useImages.cloudy_6} alt="cloud" className="h-12 w-12" loading="lazy"/>
             <span className="text-lightBlue/80">35°</span>
           </div>
 

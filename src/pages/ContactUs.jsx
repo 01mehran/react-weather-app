@@ -1,16 +1,19 @@
 // Images;
 import { useImages } from "@images/useImages";
+import { Link } from "react-router-dom";
 
 
 export const ContactUs = () => {
   return (
     <section className="bg-navy flex h-dvh flex-col overflow-y-hidden">
       <header className="bg-navy-dark flex items-center space-x-12 py-6 pl-8">
+       <Link to="/emergencyContact">
         <img
           src={useImages.arrow}
           alt="arrowIcon"
           className="max-h-[28px] max-w-[28px] cursor-pointer"
-        />
+          />
+        </Link>
         <h1 className="text-lightBlue text-3xl font-bold tracking-wider">
           Contact Us
         </h1>

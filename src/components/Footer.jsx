@@ -16,7 +16,8 @@ export const Footer = () => {
             currentPath === "/landingPage" ? useImages.home : useImages.home2
           }
           alt="homeIcon"
-          className="cursor-pointer"
+          className="w-6 cursor-pointer"
+          loading="lazy"
         />
       </Link>
 
@@ -28,7 +29,8 @@ export const Footer = () => {
               : useImages.calendar
           }
           alt="calendarIcon"
-          className="cursor-pointer"
+          className="w-6 cursor-pointer"
+          loading="lazy"
         />
       </Link>
 
@@ -40,7 +42,8 @@ export const Footer = () => {
               : useImages.waterlevel
           }
           alt="waterlevelIcon"
-          className="translate-x-2 -translate-y-2 transform cursor-pointer"
+          className="w-10 translate-x-2 -translate-y-2 transform cursor-pointer"
+          loading="lazy"
         />
       </Link>
 
@@ -52,12 +55,18 @@ export const Footer = () => {
               : useImages.emergency
           }
           alt="emergencyIcon"
-          className="-translate-y-0.5 transform cursor-pointer"
+          className="w-6 -translate-y-0.5 transform cursor-pointer"
+          loading="lazy"
         />
       </Link>
 
       <Link to="/contactUs">
-        <img src={useImages.radar} alt="radarIcon" className="cursor-pointer" />
+        <img
+          src={useImages.radar}
+          alt="radarIcon"
+          className="w-9 cursor-pointer"
+          loading="lazy"
+        />
       </Link>
     </footer>
   );
