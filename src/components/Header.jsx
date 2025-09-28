@@ -1,13 +1,16 @@
+// Libraries;
+import { useState } from "react";
+
 // Context;
 import { useToggleDashboard } from "@/context/DashboardContext";
 
-// Image;
-import { useImages } from "@images/useImages";
-import { useState } from "react";
-
+//Components;
 import { SearchBox } from "./SearchBox";
 
-export const Header = () => {
+// Images;
+import { useImages } from "@images/useImages";
+
+export const Header = ({ onHandleSearch, location, setLocation }) => {
   const { toggleDashboard } = useToggleDashboard();
 
   const [isSearchBoxOpen, setIsSearchBoxOpen] = useState(false);
@@ -19,13 +22,19 @@ export const Header = () => {
   return (
     <header className="bg-navy-light relative flex min-h-15 items-center justify-between px-4 py-2">
       {/* Search box */}
-      <SearchBox isSearchBoxOpen={isSearchBoxOpen} toggleSearchBox={toggleSearchBox} />    
+      <SearchBox
+        isSearchBoxOpen={isSearchBoxOpen}
+        toggleSearchBox={toggleSearchBox}
+        onHandleSearch={onHandleSearch}
+        location={location}
+        setLocation={setLocation}
+      />
 
       {!isSearchBoxOpen && (
         <>
           <img
             src={useImages.menu}
-            alt="menuIcon"
+            alt="menu icon"
             onClick={toggleDashboard}
             className="w-8 cursor-pointer"
           />

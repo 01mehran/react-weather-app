@@ -35,9 +35,14 @@
 
 @layer components {
   .landing-details-box {
-    @apply text-lightBlue bg-navy-dark w-1/3 space-y-2 px-5 py-4 text-center;
+    @apply text-lightBlue bg-navy-dark w-1/3 space-y-2 py-4 text-center;
+  }
+
+  .landing-skelton-effect {
+    @apply to-navy-light-2 animate-pulse rounded-md bg-gradient-to-r from-[#143158];
   }
 }
+
 /* hex colors;
 1_0f284c
 2_caf7ff 

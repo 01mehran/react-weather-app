@@ -38,10 +38,14 @@ import waterlevel2 from "./waterlevel2.svg";
 import emergency2 from "./emergency-call2.svg";
 import hourlyBg from "./hourlyBg.png";
 import cloudy_1 from "./cloudy-1.svg";
-import cloudy_2 from "./cloudy-2.svg";
+import cloudy_2 from "./cloudy-2.png";
 import cloudy_3 from "./cloudy-3.svg";
 import cloudy_4 from "./cloudy-4.svg";
+import cloudy_5 from "./cloudy-5.svg";
 import cloudy_6 from "./cloudy-6.svg";
+import cloudy_7 from "./cloudy-7.svg";
+import cloudy_8 from "./cloudy-8.svg";
+
 export const useImages = {
   logo,
   user,
@@ -86,5 +90,8 @@ export const useImages = {
   cloudy_2,
   cloudy_3,
   cloudy_4,
+  cloudy_5,
   cloudy_6,
+  cloudy_7,
+  cloudy_8,
 };
