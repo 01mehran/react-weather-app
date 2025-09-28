@@ -6,19 +6,18 @@ export const LandingSkelton = () => {
           <div className="to-navy-light-2 justify mx-auto flex h-42 w-42 items-center rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="mx-auto h-20 w-20 animate-pulse"
+              className="mx-auto animate-pulse h-full w-full"
               viewBox="0 0 24 24"
               fill="none"
-              stroke-width="2"
-              className="h-full w-full"
+              strokeWidth="2"
             >
               <circle
                 cx="12"
                 cy="12"
                 r="5"
-                class="animate-pulse fill-[#143158]"
+                className="animate-pulse fill-[#143158]"
               />
-              <g class="animate-pulse stroke-[#143158]">
+              <g className="animate-pulse stroke-[#143158]">
                 <line x1="12" y1="1" x2="12" y2="4" />
                 <line x1="12" y1="20" x2="12" y2="23" />
                 <line x1="4.2" y1="4.2" x2="6.3" y2="6.3" />
