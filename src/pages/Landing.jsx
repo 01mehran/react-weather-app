@@ -1,47 +1,16 @@
-// Libraries;
-import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
-
 // Components;
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import { TodayHourlyWeather } from "@components/TodayHourlyWeather";
-import { GetLocationWeather } from "@/services/GetLocationWeather";
 import { LandingSkelton } from "@components/LandingSkelton";
 
 // Images;
 import { GetWeatherIcon } from "@/utils/GetWeatherIcon";
-
+import { useWeatherData } from "@/context/WeatherContext";
 
 export const Landing = () => {
-  const [location, setLocation] = useState("");
-  const [search, setSearch] = useState("");
-
-  const { data, error } = useQuery({
-    queryKey: ["weather", search],
-    queryFn: () => GetLocationWeather(search),
-    enabled: !!search,
-    refetchOnWindowFocus: false,
-  });
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-
-    if (location.trim()) {
-      setSearch(location);
-    }
-
-    setLocation("");
-  };
-
-  useEffect(() => {
-    setSearch("Bandar abbas");
-  }, []);
-
-  const renderLocationName = (city, country) => {
-    if (!country || !city) return "";
-    return city === country ? country : `${country}, ${city}`;
-  };
+  
+  const { data, error, renderLocationName } = useWeatherData();
 
   return (
     <section className="bg-navy flex h-dvh flex-col">
@@ -53,11 +22,7 @@ export const Landing = () => {
       </p>
 
       {/* Header */}
-      <Header
-        onHandleSearch={handleSearch}
-        location={location}
-        setLocation={setLocation}
-      />
+      <Header />
       <main className="small:max-w-[600px] small:mx-auto h-dvh w-full">
         {data ? (
           <div className="bg-red- flex h-full flex-col">

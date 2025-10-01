@@ -2,15 +2,30 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { App } from "./App.jsx";
+
+// Libraries;
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
+
+// Context;
 import { DashboardProvider } from "./context/DashboardContext.jsx";
+import { InputSearchProvider } from "./context/InputSearchContext.jsx";
+import { WeatherProvider } from "./context/WeatherContext.jsx";
+
+const queyClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <BrowserRouter>
-      <DashboardProvider>
-        <App />
-      </DashboardProvider>
-    </BrowserRouter>
-  </StrictMode>,
+  <QueryClientProvider client={queyClient}>
+    <StrictMode>
+      <BrowserRouter>
+        <InputSearchProvider>
+          <WeatherProvider>
+            <DashboardProvider>
+              <App />
+            </DashboardProvider>
+          </WeatherProvider>
+        </InputSearchProvider>
+      </BrowserRouter>
+    </StrictMode>
+  </QueryClientProvider>,
 );

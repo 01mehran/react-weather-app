@@ -25,9 +25,9 @@ export const Header = ({ onHandleSearch, location, setLocation }) => {
       <SearchBox
         isSearchBoxOpen={isSearchBoxOpen}
         toggleSearchBox={toggleSearchBox}
-        onHandleSearch={onHandleSearch}
-        location={location}
-        setLocation={setLocation}
+        // onHandleSearch={onHandleSearch}
+        // location={location}
+        // setLocation={setLocation}
       />
 
       {!isSearchBoxOpen && (

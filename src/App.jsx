@@ -1,6 +1,5 @@
 // Libraries;
 import { Route, Routes } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 
 // Pages;
@@ -29,9 +28,8 @@ export const App = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const query = new QueryClient();
   return (
-    <QueryClientProvider client={query}>
+    <>
       <Dashboard />
 
       {showSplash ? (
@@ -50,6 +48,6 @@ export const App = () => {
           <Route path="/hourlyWeather" element={<HourlyWeather />} />
         </Routes>
       )}
-    </QueryClientProvider>
+    </>
   );
 };
