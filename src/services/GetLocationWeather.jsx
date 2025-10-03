@@ -10,40 +10,30 @@ export const GetLocationWeather = async (city) => {
     const locationCoordinates = await axios.get(
       `https://geocoding-api.open-meteo.com/v1/search?name=${city}`,
     );
-    
     if (
       !locationCoordinates.data.results ||
       locationCoordinates.data.results.length === 0
     ) {
       throw new Error("NOT_FOUND");
     }
+    // console.log(locationCoordinates)
 
     const { latitude, longitude, name, country } =
       locationCoordinates.data.results[0];
 
-
-    const apiMinDate = new Date("2025-06-29");
-    const apiMaxDate = new Date("2025-10-15");
-    const todayDate = new Date();
-
-    let startDate = new Date(todayDate.getFullYear(), todayDate.getMonth(), 1);
-    if (startDate < apiMinDate) startDate = apiMinDate;
-
-    let endDate = new Date(todayDate.getFullYear(), todayDate.getMonth() + 1, 0);
-    if (endDate > apiMaxDate) endDate = apiMaxDate;
-
-    startDate = startDate.toISOString().split("T")[0];
-    endDate = endDate.toISOString().split("T")[0];
-    // Getting weather data of the location;
     const locationWeather = await axios.get(
-      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=precipitation,relative_humidity_2m,cloudcover,weathercode&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&start_date=${startDate}&end_date=${endDate}`,
-    );    
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=precipitation,relative_humidity_2m,cloudcover,weathercode,temperature_2m&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&forecast_days=16`,
+    );
+
+    // console.log(locationWeather);
+
     const data = locationWeather.data;
     const currentWeather = data.current_weather;
     const windSpeed = currentWeather.windspeed;
     const weatherCode = currentWeather.weathercode;
     const temperature = currentWeather.temperature;
 
+    // ------- Humidiy & precipitation;
     const times = data.hourly.time;
     const humidities = data.hourly.relative_humidity_2m;
     const precipitations = data.hourly.precipitation;
@@ -80,8 +70,21 @@ export const GetLocationWeather = async (city) => {
       weatherCode: dailyWeatherCode[i],
       weatherDescription: WeatherCodeToDescription(dailyWeatherCode[i]),
     }));
-    
-    
+
+    // ------ Hourly foreCast ---------
+    const today = new Date().getDate();
+
+    const hourlyWeather = times
+      .map((t, i) => {
+        const todayDate = new Date(t);
+        return {
+          time: todayDate.getHours(),
+          day: todayDate.getDate(),
+          temperature: Math.round(data.hourly.temperature_2m[i]),
+          weatherCode: data.hourly.weathercode[i],
+        };
+      })
+      .filter((t) => t.day === today && t.time >= 12 && t.time <= 24);
 
     return {
       city: name,
@@ -94,6 +97,7 @@ export const GetLocationWeather = async (city) => {
       precipitation,
       weatherDescription,
       dailyForecast,
+      hourlyWeather,
     };
   } catch (err) {
     if (err.message === "NOT_FOUND") {

@@ -1,14 +1,11 @@
 //Icons;
 import { IoClose } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
-import { useInputSearchValue } from "../context/InputSearchContext";
+import { useInputSearchValue } from "@/context/InputSearchContext";
 
 export const SearchBox = ({
   isSearchBoxOpen,
   toggleSearchBox,
-  // onHandleSearch,
-  // location,
-  // setLocation,
 }) => {
   const { location, handleSearch, handleChange } = useInputSearchValue();
   return (

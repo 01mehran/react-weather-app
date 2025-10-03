@@ -89,7 +89,8 @@ export const Landing = () => {
                 </article>
               </section>
 
-              <TodayHourlyWeather />
+                {data &&   <TodayHourlyWeather data={data.hourlyWeather}/>}
+            
             </div>
           </div>
         ) : (
