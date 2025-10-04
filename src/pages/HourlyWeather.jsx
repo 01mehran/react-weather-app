@@ -3,6 +3,7 @@ import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import { HoursWeather } from "@components/HoursWeather";
 
+
 // Utils;
 import { GetWeatherIcon } from "@/utils/GetWeatherIcon";
 
@@ -11,10 +12,15 @@ import { useImages } from "@images/useImages";
 import { useWeatherData } from "@/context/WeatherContext";
 
 export const HourlyWeather = () => {
-  const { data, renderLocationName } = useWeatherData();
-
+  const { data, error, renderLocationName } = useWeatherData(); 
   return (
     <section className="bg-navy flex h-dvh flex-col">
+    {/* error message */}
+      <p
+        className={`absolute top-17 left-1/2 w-4/5 -translate-x-1/2 rounded-sm bg-[#850a0a] px-4 py-1 text-center text-white transition-transform duration-400 ease-in-out md:w-fit ${error ? "translate-y-0" : "-translate-y-[500px]"}`}
+      >
+        {error && `${error.message}`}
+      </p>
       <Header />
       {data && (
         <>
@@ -48,7 +54,7 @@ export const HourlyWeather = () => {
             </div>
           </div>
 
-          <HoursWeather />
+          <HoursWeather data={data.specificTime}/>
         </>
       )}
 

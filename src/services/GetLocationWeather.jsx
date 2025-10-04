@@ -25,7 +25,6 @@ export const GetLocationWeather = async (city) => {
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=precipitation,relative_humidity_2m,cloudcover,weathercode,temperature_2m,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&forecast_days=16`,
     );
 
-
     const data = locationWeather.data;
     const currentWeather = data.current_weather;
     const windSpeed = currentWeather.windspeed;
@@ -88,6 +87,22 @@ export const GetLocationWeather = async (city) => {
       })
       .filter((t) => t.day === today && t.time >= 12 && t.time <= 24);
 
+      
+    const specificTime = times
+      .map((t, i) => {
+        const todayDate = new Date(t);
+
+        return {
+          time: todayDate.getHours(),
+          day: todayDate.getDate(),
+          temperature: Math.round(data.hourly.temperature_2m[i]),
+          weatherCode: data.hourly.weathercode[i],
+        };
+      })
+      .filter(
+        (t) => t.day === today && [7, 8, 11, 12, 13, 14].includes(t.time),
+      );
+
     return {
       city: name,
       country,
@@ -101,6 +116,7 @@ export const GetLocationWeather = async (city) => {
       dailyForecast,
       hourlyWeather,
       feelsNow,
+      specificTime,
     };
   } catch (err) {
     if (err.message === "NOT_FOUND") {
