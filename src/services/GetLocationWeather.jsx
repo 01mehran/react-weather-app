@@ -22,10 +22,9 @@ export const GetLocationWeather = async (city) => {
       locationCoordinates.data.results[0];
 
     const locationWeather = await axios.get(
-      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=precipitation,relative_humidity_2m,cloudcover,weathercode,temperature_2m&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&forecast_days=16`,
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=precipitation,relative_humidity_2m,cloudcover,weathercode,temperature_2m,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&forecast_days=16`,
     );
 
-    // console.log(locationWeather);
 
     const data = locationWeather.data;
     const currentWeather = data.current_weather;
@@ -71,6 +70,9 @@ export const GetLocationWeather = async (city) => {
       weatherDescription: WeatherCodeToDescription(dailyWeatherCode[i]),
     }));
 
+    const feelsLike = data.hourly.apparent_temperature;
+    const feelsNow = Math.round(feelsLike[closestIndex]);
+
     // ------ Hourly foreCast ---------
     const today = new Date().getDate();
 
@@ -98,6 +100,7 @@ export const GetLocationWeather = async (city) => {
       weatherDescription,
       dailyForecast,
       hourlyWeather,
+      feelsNow,
     };
   } catch (err) {
     if (err.message === "NOT_FOUND") {
