@@ -10,6 +10,7 @@ import { GetWeatherIcon } from "@/utils/GetWeatherIcon";
 // Images;
 import { useImages } from "@images/useImages";
 import { useWeatherData } from "@/context/WeatherContext";
+import { HoursWeatherSkelton } from "../components/HoursWeatherSkelton";
 
 export const HourlyWeather = () => {
   const { data, error, renderLocationName } = useWeatherData(); 
@@ -17,12 +18,12 @@ export const HourlyWeather = () => {
     <section className="bg-navy flex h-dvh flex-col">
     {/* error message */}
       <p
-        className={`absolute top-17 left-1/2 w-4/5 -translate-x-1/2 rounded-sm bg-[#850a0a] px-4 py-1 text-center text-white transition-transform duration-400 ease-in-out md:w-fit ${error ? "translate-y-0" : "-translate-y-[500px]"}`}
+        className={`absolute top-17 left-1/2 w-4/5 -translate-x-1/2 rounded-sm bg-[#850a0a] px-4 py-1 text-center text-white transition-transform duration-400 ease-in-out md:w-fit ${error ? "translate-y-0" : "-translate-y-[500px]"} z-10`}
       >
         {error && `${error.message}`}
       </p>
       <Header />
-      {data && (
+      {data ? (
         <>
           <div className="relative flex h-[300px] flex-col gap-4 text-center shadow-2xl">
             <img
@@ -56,7 +57,7 @@ export const HourlyWeather = () => {
 
           <HoursWeather data={data.specificTime}/>
         </>
-      )}
+      ) : <HoursWeatherSkelton />}
 
       <Footer />
     </section>
