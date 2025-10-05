@@ -1,3 +1,7 @@
+// Libraries;
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
 // Context;
 import { useToggleDashboard } from "@/context/DashboardContext";
 
@@ -6,9 +10,30 @@ import { useImages } from "@images/useImages";
 
 export const Dashboard = () => {
   const { isDashboardOpen, toggleDashboard } = useToggleDashboard();
+  const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState("");
+  const location = useLocation();
+  
+// Show username & id on dashboard
+ useEffect(() => {
+  const userInfo = location.state?.user; 
+
+  if (userInfo) {
+    setUserName(userInfo.username);
+    setUserId(userInfo.documentId.slice(-7));
+    localStorage.setItem("user", JSON.stringify(userInfo)); 
+  } else {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    if (userData) {
+      setUserName(userData.username);
+      setUserId(userData.documentId.slice(-7));
+    }
+  }
+}, [location.state]);;
+
   return (
     <>
-    {/* layer */}
+      {/* layer */}
       {isDashboardOpen && (
         <div
           onClick={toggleDashboard}
@@ -32,10 +57,10 @@ export const Dashboard = () => {
             alt="userIcon"
           />
           <p className="text-lightBlue absolute top-25 left-6 text-xl font-bold tracking-wider">
-            Patrick Bacalso
+            {userName}
           </p>
-          <span className="text-lightBlue font-normmal absolute top-32 left-6 text-sm tracking-wider">
-            CSIT238
+          <span className="text-lightBlue font-normmal absolute top-32 left-6 text-sm tracking-wider uppercase">
+            {userId}
           </span>
         </div>
         {/* middle */}
@@ -51,7 +76,7 @@ export const Dashboard = () => {
           </article>
         </div>
         {/* middle lower */}
-        <div className=" flex h-full flex-col justify-evenly px-6">
+        <div className="flex h-full flex-col justify-evenly px-6">
           <article className="text-lightblue flex items-center gap-2">
             <img src={useImages.dashboardCloudy} alt="weatherIcon" />
             <h4 className="text-lightBlue text-xl font-bold tracking-wider">

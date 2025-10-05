@@ -38,7 +38,6 @@ export const SignUp = () => {
   const mutaion = useMutation({
     mutationFn: Regester,
     onSuccess: (data) => {
-      console.log(data);
 
       localStorage.setItem("jwt", data.jwt);
       localStorage.setItem("user", JSON.stringify(data.user));

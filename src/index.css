@@ -26,7 +26,7 @@
 
 @layer base {
   body {
-    @apply font-openSans;
+    @apply font-openSans bg-navy;
   }
   ::-webkit-scrollbar {
     @apply hidden;

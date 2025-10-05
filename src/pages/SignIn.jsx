@@ -29,7 +29,7 @@ export const SignIn = () => {
 
     // Redirect to landing page;
     if (savedUserName && savedPassword) {
-     navigate('/landingPage')
+      navigate("/landingPage");
     } else {
       setCheckingLogin(false);
     }
@@ -44,16 +44,13 @@ export const SignIn = () => {
     }
   }, []);
 
-  if (checkingLogin) return null;
-
   const mutation = useMutation({
     mutationFn: Login,
     onSuccess: (data) => {
       localStorage.setItem("jwt", data.jwt);
       localStorage.setItem("user", JSON.stringify(data.user));
-      console.log(data);
 
-      setTimeout(() => navigate("/landingPage"), 2000);
+      navigate("/landingPage", { state: { user: data.user } });
     },
     onError: (error) => {
       console.error(error);
@@ -89,6 +86,8 @@ export const SignIn = () => {
 
     mutation.mutate(form);
   };
+
+  if (checkingLogin) return null;
 
   return (
     <section className="bg-navy h-vh flex justify-center">
