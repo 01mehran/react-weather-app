@@ -1,13 +1,13 @@
 export const HoursWeatherSkelton = () => {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div className="landing-skelton-effect m-2 h-[300px]"></div>
-      <section className="flex items-center justify-between gap-4">
-      {Array.from({ length: 6 }).map((_, i) => (
+      <section className="flex items-center justify-between gap-4  ">
+      {Array.from({ length: 5 }).map((_, i) => (
 
         
-          <div key={i} className="mx-2 flex h-[250px] w-fit flex-col items-center justify-between gap-4">
-            <span className="bg-navy-light-2 h-full w-1 animate-pulse"></span>
+          <div key={i} className="mx-2 flex h-[250px] gap-6 w-fit flex-col items-center justify-between">
+            <span className="bg-navy-light-2 h-20 w-1 animate-pulse"></span>
             <div className="h-10 w-10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

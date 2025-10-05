@@ -56,6 +56,7 @@ export const HourlyWeather = () => {
           </div>
 
           <HoursWeather data={data.specificTime}/>
+          
         </>
       ) : <HoursWeatherSkelton />}
 
