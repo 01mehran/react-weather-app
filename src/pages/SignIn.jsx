@@ -20,11 +20,19 @@ export const SignIn = () => {
   });
   const [remember, setRemember] = useState(false);
   const [error, setError] = useState("");
+  const [checkingLogin, setCheckingLogin] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const savedUserName = localStorage.getItem("username");
     const savedPassword = localStorage.getItem("password");
+
+    // Redirect to landing page;
+    if (savedUserName && savedPassword) {
+     navigate('/landingPage')
+    } else {
+      setCheckingLogin(false);
+    }
 
     if (savedUserName && savedPassword) {
       setForm((prev) => ({
@@ -35,6 +43,8 @@ export const SignIn = () => {
       setRemember(true);
     }
   }, []);
+
+  if (checkingLogin) return null;
 
   const mutation = useMutation({
     mutationFn: Login,
@@ -81,7 +91,7 @@ export const SignIn = () => {
   };
 
   return (
-    <section className="bg-navy flex h-screen justify-center">
+    <section className="bg-navy h-vh flex justify-center">
       {/* container */}
       <div className="w-[500px] border-purple-300 pt-12">
         {/* Logo */}
@@ -126,7 +136,7 @@ export const SignIn = () => {
               <input
                 type="checkbox"
                 id="rePassword"
-                className="cursor-pointer accent-blue"
+                className="accent-blue cursor-pointer"
                 checked={remember}
                 onChange={(e) => setRemember(e.target.checked)}
               />
