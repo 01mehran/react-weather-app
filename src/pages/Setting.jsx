@@ -1,7 +1,13 @@
 // Image;
 import { useImages } from "@images/useImages";
+import { useNavigate } from "react-router-dom";
+import { useToggleDashboard } from "../context/DashboardContext";
 
 export const Setting = () => {
+
+  const navigate = useNavigate();
+  const {toggleDashboard} = useToggleDashboard()
+
   return (
     <section className="bg-navy flex h-dvh flex-col">
       <header className="bg-navy-dark flex items-center space-x-12 py-6 pl-8">
@@ -9,6 +15,7 @@ export const Setting = () => {
           src={useImages.arrow}
           alt="arrowIcon"
           className="max-h-[28px] max-w-[28px] cursor-pointer"
+          onClick={() => navigate(-1)}
         />
         <h1 className="text-lightBlue text-3xl font-bold tracking-wider">
           Settings

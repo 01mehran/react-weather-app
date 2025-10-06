@@ -1,6 +1,39 @@
+// Libraries;
+import { NavLink, useNavigate } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
+
+// images;
 import { useImages } from "@images/useImages";
 
 export const UserProfile = () => {
+  const navigate = useNavigate();
+  const [userProfile, setUserProfile] = useState(null);
+  const imageEl = useRef(null);
+
+  // Update profile & save it to localStorage;
+  useEffect(() => {
+    const savedUserProfile = localStorage.getItem("userProfile");
+    if (savedUserProfile) setUserProfile(savedUserProfile);
+  }, []);
+
+  const handleChangeUserProfile = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const based64 = reader.result;
+        setUserProfile(based64);
+        localStorage.setItem("userProfile", based64);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const selectImage = () => {
+    imageEl.current.click();
+  };
+
   return (
     <section className="bg-navy flex h-dvh w-full flex-col">
       <header className="relative h-fit">
@@ -12,17 +45,35 @@ export const UserProfile = () => {
           src={useImages.arrow}
           alt="arrowIcon"
           className="absolute top-5 left-8 cursor-pointer"
+          onClick={() => navigate(-1)}
         />
         <img
           src={useImages.share}
           alt="shareIcon"
           className="absolute top-5 right-5 cursor-pointer"
         />
-        <img
-          src={useImages.user2}
-          alt="userIcon"
-          className="bg-navy-dark absolute bottom-7 left-1/2 max-w-[65px] -translate-x-1/2 -translate-y-2 rounded-full p-2 drop-shadow-sm drop-shadow-black/25"
+
+        {userProfile ? (
+          <img
+            src={userProfile}
+            alt="userIcon"
+            className="bg-navy-dark absolute bottom-7 left-1/2 aspect-1/1 max-w-[85px] -translate-x-1/2 -translate-y-2 rounded-full object-cover p-2 drop-shadow-sm drop-shadow-black/25"
+          />
+        ) : (
+          <img
+            src={useImages.user2}
+            alt="userIcon"
+            className="bg-navy-dark absolute bottom-7 left-1/2 max-w-[65px] -translate-x-1/2 -translate-y-2 rounded-full p-2 drop-shadow-sm drop-shadow-black/25"
+          />
+        )}
+        <input
+          type="file"
+          ref={imageEl}
+          accept="image/*"
+          className="hidden"
+          onChange={handleChangeUserProfile}
         />
+
         <h2 className="text-blue mt-8 text-center text-2xl font-bold tracking-wider">
           Patrick Bacalso
         </h2>
@@ -31,7 +82,9 @@ export const UserProfile = () => {
         {/* upper */}
         <article className="bg-navy-dark drop-shadowmd flex cursor-pointer items-center gap-4 px-6 py-2 drop-shadow-black/25">
           <img src={useImages.addPhoto} alt="addPhotoIcon" className="" />
-          <p className="text-xl font-normal text-white">Set Profile Photo</p>
+          <p className="text-xl font-normal text-white" onClick={selectImage}>
+            Set Profile Photo
+          </p>
         </article>
         {/* top */}
         <div className="drop-shadowmd flex flex-col gap-[1px] drop-shadow-black/25">
@@ -58,18 +111,24 @@ export const UserProfile = () => {
           <div className="flex cursor-pointer justify-between px-6">
             <article className="flex items-center gap-4">
               <img src={useImages.info} alt="infoIcon" />
-              <p className="text-xl font-normal tracking-wide text-white">
+              <NavLink
+                to="/aboutUs"
+                className="text-xl font-normal tracking-wide text-white"
+              >
                 About Us
-              </p>
+              </NavLink>
             </article>
             <img src={useImages.rightArrow} alt="rightArrowIcon" />
           </div>
           <div className="flex cursor-pointer justify-between px-6">
             <article className="flex items-center gap-3">
               <img src={useImages.email} alt="infoIcon" />
-              <p className="text-xl font-normal tracking-wide text-white">
+              <NavLink
+                to="/contactUs"
+                className="text-xl font-normal tracking-wide text-white"
+              >
                 Contact Us
-              </p>
+              </NavLink>
             </article>
             <img src={useImages.rightArrow} alt="rightArrowIcon" />
           </div>

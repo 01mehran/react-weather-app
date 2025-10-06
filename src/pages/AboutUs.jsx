@@ -1,7 +1,13 @@
+// Libraries;
+import  { useNavigate } from "react-router-dom"
+
 // Images;
 import { useImages } from "@images/useImages";
 
 export const AboutUs = () => {
+
+  const navigate = useNavigate();
+
   return (
     <section className="bg-navy flex h-svh flex-col">
       <header className="bg-navy-light-2 sticky top-0 flex items-center space-x-12 py-6 pl-8 shadow-xl">
@@ -9,6 +15,7 @@ export const AboutUs = () => {
           src={useImages.arrow}
           alt="arrowIcon"
           className="max-h-[28px] max-w-[28px] cursor-pointer"
+          onClick={() => navigate(-1)}
         />
         <h1 className="text-lightBlue text-3xl font-bold tracking-wider">
           About Us

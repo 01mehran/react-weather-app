@@ -1,6 +1,6 @@
 // Libraries;
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 // Context;
 import { useToggleDashboard } from "@/context/DashboardContext";
@@ -9,7 +9,7 @@ import { useToggleDashboard } from "@/context/DashboardContext";
 import { useImages } from "@images/useImages";
 
 export const Dashboard = () => {
-  const { isDashboardOpen, toggleDashboard } = useToggleDashboard();
+  const { isDashboardOpen, toggleDashboard, setIsDashboardOpen } = useToggleDashboard();
   const [userName, setUserName] = useState("");
   const [userId, setUserId] = useState("");
   const location = useLocation();
@@ -83,12 +83,12 @@ export const Dashboard = () => {
               Add to home screen
             </h4>
           </article>
-          <article className="text-lightblue flex items-center gap-2">
+          <NavLink to="/userProfile" onClick={toggleDashboard} className={({isActive}) => `text-lightblue flex items-center gap-2 ${isActive ? "bg-navy-lighten p-1 rounded-md": ""}`}>
             <img src={useImages.dashboardEdite} alt="editeIcon" />
             <h4 className="text-lightBlue text-xl font-bold tracking-wider">
               Edite profile
             </h4>
-          </article>
+          </NavLink>
           <article className="text-lightblue flex items-center gap-2">
             <img src={useImages.dashboardwidget} alt="wedgetIcon" />
             <h4 className="text-lightBlue text-xl font-bold tracking-wider">
@@ -96,12 +96,12 @@ export const Dashboard = () => {
             </h4>
           </article>
           <hr className="appearence-none border-px border-lightBlue" />
-          <article className="text-lightblue flex items-center gap-2">
+          <NavLink to="/setting" onClick={toggleDashboard} className={({isActive}) => `text-lightblue flex items-center gap-2 ${isActive ? "bg-navy-lighten p-1 rounded-md": ""}`}>
             <img src={useImages.dashboardsetting} alt="settingIcon" />
             <h4 className="text-lightBlue text-lg font-bold tracking-wider">
               Settings
             </h4>
-          </article>
+          </NavLink>
           <article className="text-lightblue flex items-center gap-2">
             <img src={useImages.dashboardfeedback} alt="feddbackIcon" />
             <h4 className="text-lightBlue text-lg font-bold tracking-wider">

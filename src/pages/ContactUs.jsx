@@ -1,19 +1,23 @@
+import { useNavigate } from "react-router-dom"; 
+
 // Images;
 import { useImages } from "@images/useImages";
-import { Link } from "react-router-dom";
 
 
 export const ContactUs = () => {
+
+  const navigate = useNavigate();
+
   return (
     <section className="bg-navy flex h-dvh flex-col overflow-y-hidden">
       <header className="bg-navy-dark flex items-center space-x-12 py-6 pl-8">
-       <Link to="/emergencyContact">
+       <div className="cursor-pointer" onClick={() => navigate(-1)}>
         <img
           src={useImages.arrow}
           alt="arrowIcon"
-          className="max-h-[28px] max-w-[28px] cursor-pointer"
+          className="max-h-[28px] max-w-[28px]"
           />
-        </Link>
+        </div>
         <h1 className="text-lightBlue text-3xl font-bold tracking-wider">
           Contact Us
         </h1>
