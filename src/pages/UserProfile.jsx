@@ -7,13 +7,28 @@ import { useImages } from "@images/useImages";
 
 export const UserProfile = () => {
   const navigate = useNavigate();
-  const [userProfile, setUserProfile] = useState(null);
+  const [userProfileImage, setUserProfileImage] = useState(null);
   const imageEl = useRef(null);
+
+  const [profile, setProfile] = useState({
+    profileUserName: "",
+    profileBio: "",
+  });
 
   // Update profile & save it to localStorage;
   useEffect(() => {
-    const savedUserProfile = localStorage.getItem("userProfile");
-    if (savedUserProfile) setUserProfile(savedUserProfile);
+    const savedUserProfileImage = localStorage.getItem("userProfileImage");
+    // Update username & bio;
+    const savedProfileUserName = localStorage.getItem("profileUserName");
+    const savedProfileBio = localStorage.getItem("profileBio");
+
+    if (savedUserProfileImage) setUserProfileImage(savedUserProfileImage);
+    if (savedProfileUserName || savedProfileBio) {
+      setProfile({
+        profileUserName: savedProfileUserName || "",
+        profileBio: savedProfileBio || "",
+      });
+    }
   }, []);
 
   const handleChangeUserProfile = (e) => {
@@ -23,8 +38,8 @@ export const UserProfile = () => {
       const reader = new FileReader();
       reader.onloadend = () => {
         const based64 = reader.result;
-        setUserProfile(based64);
-        localStorage.setItem("userProfile", based64);
+        setUserProfileImage(based64);
+        localStorage.setItem("userProfileImage", based64);
       };
       reader.readAsDataURL(file);
     }
@@ -32,6 +47,19 @@ export const UserProfile = () => {
 
   const selectImage = () => {
     imageEl.current.click();
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setProfile((prev) => {
+      const updated = { ...prev, [name]: value };
+
+      localStorage.setItem("profileUserName", updated.profileUserName);
+      localStorage.setItem("profileBio", updated.profileBio);
+
+      return updated;
+    });
   };
 
   return (
@@ -53,9 +81,9 @@ export const UserProfile = () => {
           className="absolute top-5 right-5 cursor-pointer"
         />
 
-        {userProfile ? (
+        {userProfileImage ? (
           <img
-            src={userProfile}
+            src={userProfileImage}
             alt="userIcon"
             className="bg-navy-dark absolute bottom-7 left-1/2 aspect-1/1 max-w-[85px] -translate-x-1/2 -translate-y-2 rounded-full object-cover p-2 drop-shadow-sm drop-shadow-black/25"
           />
@@ -75,7 +103,7 @@ export const UserProfile = () => {
         />
 
         <h2 className="text-blue mt-8 text-center text-2xl font-bold tracking-wider">
-          Patrick Bacalso
+          {/* {profile.profileUsername} */}
         </h2>
       </header>
       <main className="mt-4 flex h-full flex-col gap-3">
@@ -89,18 +117,26 @@ export const UserProfile = () => {
         {/* top */}
         <div className="drop-shadowmd flex flex-col gap-[1px] drop-shadow-black/25">
           <article className="bg-navy-dark flex flex-col gap-0 px-6 py-1">
-            <p className="text-lightBlue text-lg font-bold tracking-wide">
-              @patrick.bacalso
-            </p>
+            <input
+              type="text"
+              className="text-lightBlue border-0 text-lg font-bold tracking-wide outline-0"
+              name="profileUserName"
+              value={profile.profileUserName}
+              onChange={handleChange}
+              placeholder="Set a username"
+            />
             <span className="text-sm font-normal tracking-wide text-white/30">
-              {" "}
               Username
             </span>
           </article>
           <article className="bg-navy-dark flex flex-col gap-0 px-6 py-1">
-            <p className="text-lightBlue text-lg font-bold tracking-wide">
-              Bio
-            </p>
+            <input
+              name="profileBio"
+              value={profile.profileBio}
+              onChange={handleChange}
+              className="text-lightBlue border-0 text-lg font-bold tracking-wide outline-0"
+              placeholder="Bio"
+            />
             <span className="text-sm font-normal tracking-wide text-white/30">
               Add a few words about yourself
             </span>
