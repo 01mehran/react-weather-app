@@ -9,27 +9,44 @@ import { useToggleDashboard } from "@/context/DashboardContext";
 import { useImages } from "@images/useImages";
 
 export const Dashboard = () => {
-  const { isDashboardOpen, toggleDashboard, setIsDashboardOpen } = useToggleDashboard();
+  const { isDashboardOpen, toggleDashboard, setIsDashboardOpen } =
+    useToggleDashboard();
   const [userName, setUserName] = useState("");
   const [userId, setUserId] = useState("");
   const location = useLocation();
-  
-// Show username & id on dashboard
- useEffect(() => {
-  const userInfo = location.state?.user; 
+  const [image, setImage] = useState(
+    localStorage.getItem("userProfileImage") || "",
+  );
 
-  if (userInfo) {
-    setUserName(userInfo.username);
-    setUserId(userInfo.documentId.slice(-7));
-    localStorage.setItem("user", JSON.stringify(userInfo)); 
-  } else {
-    const userData = JSON.parse(localStorage.getItem("user"));
-    if (userData) {
-      setUserName(userData.username);
-      setUserId(userData.documentId.slice(-7));
+  // Show username & id on dashboard
+  useEffect(() => {
+    const userInfo = location.state?.user;
+
+    if (userInfo) {
+      setUserName(userInfo.username);
+      setUserId(userInfo.documentId.slice(-7));
+      localStorage.setItem("user", JSON.stringify(userInfo));
+    } else {
+      const userData = JSON.parse(localStorage.getItem("user"));
+      if (userData) {
+        setUserName(userData.username);
+        setUserId(userData.documentId.slice(-7));
+      }
     }
-  }
-}, [location.state]);;
+  }, [location.state]);
+
+  useEffect(() => {
+    const updatedImage = () => {
+      const newImage = localStorage.getItem("userProfileImage");
+      setImage(newImage);
+    };
+
+    window.addEventListener("userProfileImageChanged", updatedImage);
+
+    return () => {
+      window.removeEventListener("userProfileImageChanged", updatedImage);
+    };
+  }, []);
 
   return (
     <>
@@ -38,9 +55,7 @@ export const Dashboard = () => {
         <div
           onClick={toggleDashboard}
           className="fixed inset-0 z-40 bg-black/70 transition duration-200"
-        >
-          12
-        </div>
+        ></div>
       )}
       <section
         className={`bg-navy fixed top-0 left-0 z-50 flex h-full w-full max-w-[324px] flex-col transition duration-300 ${isDashboardOpen ? "-translate-x-0" : "-translate-x-full"}`}
@@ -51,11 +66,17 @@ export const Dashboard = () => {
           style={{ backgroundImage: `url(${useImages.dashboardBg})` }}
         >
           <div className="absolute inset-0 bg-black/40"></div>
-          <img
-            src={useImages.dashboardUser}
-            className="absolute top-8 left-6 h-[60px] w-[60px]"
-            alt="userIcon"
-          />
+          <div className="absolute top-8 left-4 h-[60px] w-[60px]">
+            {image ? (
+              <img
+                src={image}
+                className="h-full w-full rounded-full object-cover"
+                alt="userIcon"
+              />
+            ) : (
+              <img src={useImages.dashboardUser} alt="user icon" />
+            )}
+          </div>
           <p className="text-lightBlue absolute top-25 left-6 text-xl font-bold tracking-wider">
             {userName}
           </p>
@@ -83,7 +104,13 @@ export const Dashboard = () => {
               Add to home screen
             </h4>
           </article>
-          <NavLink to="/userProfile" onClick={toggleDashboard} className={({isActive}) => `text-lightblue flex items-center gap-2 ${isActive ? "bg-navy-lighten p-1 rounded-md": ""}`}>
+          <NavLink
+            to="/userProfile"
+            onClick={toggleDashboard}
+            className={({ isActive }) =>
+              `text-lightblue flex items-center gap-2 ${isActive ? "bg-navy-lighten rounded-md p-1" : ""}`
+            }
+          >
             <img src={useImages.dashboardEdite} alt="editeIcon" />
             <h4 className="text-lightBlue text-xl font-bold tracking-wider">
               Edite profile
@@ -96,7 +123,13 @@ export const Dashboard = () => {
             </h4>
           </article>
           <hr className="appearence-none border-px border-lightBlue" />
-          <NavLink to="/setting" onClick={toggleDashboard} className={({isActive}) => `text-lightblue flex items-center gap-2 ${isActive ? "bg-navy-lighten p-1 rounded-md": ""}`}>
+          <NavLink
+            to="/setting"
+            onClick={toggleDashboard}
+            className={({ isActive }) =>
+              `text-lightblue flex items-center gap-2 ${isActive ? "bg-navy-lighten rounded-md p-1" : ""}`
+            }
+          >
             <img src={useImages.dashboardsetting} alt="settingIcon" />
             <h4 className="text-lightBlue text-lg font-bold tracking-wider">
               Settings

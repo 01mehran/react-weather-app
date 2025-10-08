@@ -40,6 +40,8 @@ export const UserProfile = () => {
         const based64 = reader.result;
         setUserProfileImage(based64);
         localStorage.setItem("userProfileImage", based64);
+
+        window.dispatchEvent(new Event("userProfileImageChanged"));
       };
       reader.readAsDataURL(file);
     }
@@ -103,7 +105,7 @@ export const UserProfile = () => {
         />
 
         <h2 className="text-blue mt-8 text-center text-2xl font-bold tracking-wider">
-          {/* {profile.profileUsername} */}
+          {profile.profileUserName}
         </h2>
       </header>
       <main className="mt-4 flex h-full flex-col gap-3">
@@ -145,28 +147,28 @@ export const UserProfile = () => {
         {/* middle */}
         <div className="bg-navy-dark drop-shadowmd space-y-6 py-4 drop-shadow-black/25">
           <div className="flex cursor-pointer justify-between px-6">
-            <article className="flex items-center gap-4">
+            <article className="flex w-full items-center gap-4">
               <img src={useImages.info} alt="infoIcon" />
               <NavLink
                 to="/aboutUs"
-                className="text-xl font-normal tracking-wide text-white"
+                className="flex w-full justify-between text-xl font-normal tracking-wide text-white"
               >
                 About Us
+                <img src={useImages.rightArrow} alt="rightArrowIcon" />
               </NavLink>
             </article>
-            <img src={useImages.rightArrow} alt="rightArrowIcon" />
           </div>
           <div className="flex cursor-pointer justify-between px-6">
-            <article className="flex items-center gap-3">
+            <article className="flex w-full items-center gap-3">
               <img src={useImages.email} alt="infoIcon" />
               <NavLink
                 to="/contactUs"
-                className="text-xl font-normal tracking-wide text-white"
+                className="flex w-full justify-between text-xl font-normal tracking-wide text-white"
               >
                 Contact Us
               </NavLink>
+              <img src={useImages.rightArrow} alt="rightArrowIcon" />
             </article>
-            <img src={useImages.rightArrow} alt="rightArrowIcon" />
           </div>
         </div>
         <footer className="bg-navy-dark drop-shadowmd flex flex-1 flex-col justify-evenly drop-shadow-black/25">
