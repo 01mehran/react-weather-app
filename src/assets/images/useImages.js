@@ -45,6 +45,11 @@ import cloudy_5 from "./cloudy-5.svg";
 import cloudy_6 from "./cloudy-6.svg";
 import cloudy_7 from "./cloudy-7.svg";
 import cloudy_8 from "./cloudy-8.svg";
+import cloudy_9 from "./foggy.svg";
+import cloudy_10 from "./lightning.svg";
+import cloudy_11 from "./rain.svg";
+import cloudy_12 from "./snow.svg";
+
 
 export const useImages = {
   logo,
@@ -94,4 +99,8 @@ export const useImages = {
   cloudy_6,
   cloudy_7,
   cloudy_8,
+  cloudy_9,
+  cloudy_10,
+  cloudy_11,
+  cloudy_12,
 };

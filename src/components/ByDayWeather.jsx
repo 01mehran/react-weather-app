@@ -2,13 +2,8 @@ import { GetWeatherIcon } from "@/utils/GetWeatherIcon";
 import { useWeatherData } from "../context/WeatherContext";
 
 export const ByDayWeather = ({ data }) => {
-  // const renderLocationName = (city, country) => {
-  //   if (!country || !city) return "";
-  //   return city === country ? country : `${country}, ${city}`;
-  // };
 
 const {renderLocationName} = useWeatherData();
-
   return (
     <>
       {data.dailyForecast.map((d) => (
