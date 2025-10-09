@@ -11,6 +11,7 @@ import { BrowserRouter } from "react-router-dom";
 import { DashboardProvider } from "./context/DashboardContext.jsx";
 import { InputSearchProvider } from "./context/InputSearchContext.jsx";
 import { WeatherProvider } from "./context/WeatherContext.jsx";
+import { ShareAppProvider } from "./context/ShareAppContext.jsx";
 
 const queyClient = new QueryClient();
 
@@ -19,11 +20,13 @@ createRoot(document.getElementById("root")).render(
     <StrictMode>
       <BrowserRouter>
         <InputSearchProvider>
-          <WeatherProvider>
-            <DashboardProvider>
-              <App />
-            </DashboardProvider>
-          </WeatherProvider>
+          <ShareAppProvider>
+            <WeatherProvider>
+              <DashboardProvider>
+                <App />
+              </DashboardProvider>
+            </WeatherProvider>
+          </ShareAppProvider>
         </InputSearchProvider>
       </BrowserRouter>
     </StrictMode>

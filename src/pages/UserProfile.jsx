@@ -2,6 +2,9 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 
+// Context;
+import { useShareApp } from "@/context/ShareAppContext";
+
 // images;
 import { useImages } from "@images/useImages";
 
@@ -9,6 +12,7 @@ export const UserProfile = () => {
   const navigate = useNavigate();
   const [userProfileImage, setUserProfileImage] = useState(null);
   const imageEl = useRef(null);
+  const {handleShare} = useShareApp();
 
   const [profile, setProfile] = useState({
     profileUserName: "",
@@ -81,6 +85,7 @@ export const UserProfile = () => {
           src={useImages.share}
           alt="shareIcon"
           className="absolute top-5 right-5 cursor-pointer"
+          onClick={handleShare}
         />
 
         {userProfileImage ? (
@@ -173,13 +178,13 @@ export const UserProfile = () => {
         </div>
         <footer className="bg-navy-dark drop-shadowmd flex flex-1 flex-col justify-evenly drop-shadow-black/25">
           <div className="flex cursor-pointer items-center justify-between px-6">
-            <article className="flex items-center gap-4">
+            <article className="flex items-center gap-4 w-full" onClick={handleShare}>
               <img src={useImages.share2} alt="infoIcon" />
               <p className="text-xl font-normal tracking-wide text-white">
                 Share The App
               </p>
+              <img src={useImages.rightArrow} alt="rightArrowIcon" className="ml-auto" />
             </article>
-            <img src={useImages.rightArrow} alt="rightArrowIcon" />
           </div>
           <div className="flex cursor-pointer items-center justify-between px-6">
             <article className="flex items-center gap-3">
