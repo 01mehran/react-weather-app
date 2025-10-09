@@ -4,10 +4,10 @@ export const ShareAppContext = createContext();
 
 export const ShareAppProvider = ({ children }) => {
   const handleShare = async () => {
-    const shareUrl = window.location.href;
+    const shareUrl = window.location.origin;
     const shareTitle = "Weather-App";
     const shareText = "You can see weather forecast online!";
-
+   
     if (navigator.share) {
       try {
         await navigator.share({
