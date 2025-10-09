@@ -12,7 +12,7 @@ export const UserProfile = () => {
   const navigate = useNavigate();
   const [userProfileImage, setUserProfileImage] = useState(null);
   const imageEl = useRef(null);
-  const {handleShare} = useShareApp();
+  const { handleShare } = useShareApp();
 
   const [profile, setProfile] = useState({
     profileUserName: "",
@@ -66,6 +66,18 @@ export const UserProfile = () => {
 
       return updated;
     });
+  };
+
+  const handleLogOut = () => {
+    const { username } = JSON.parse(localStorage.getItem("user"));
+    const confirmed = window.confirm(
+      `Are you sure you want to LOGOUT ${username}!?`,
+    );
+
+    if (!confirmed) return;
+
+    localStorage.clear();
+    navigate("/");
   };
 
   return (
@@ -178,12 +190,19 @@ export const UserProfile = () => {
         </div>
         <footer className="bg-navy-dark drop-shadowmd flex flex-1 flex-col justify-evenly drop-shadow-black/25">
           <div className="flex cursor-pointer items-center justify-between px-6">
-            <article className="flex items-center gap-4 w-full" onClick={handleShare}>
+            <article
+              className="flex w-full items-center gap-4"
+              onClick={handleShare}
+            >
               <img src={useImages.share2} alt="infoIcon" />
               <p className="text-xl font-normal tracking-wide text-white">
                 Share The App
               </p>
-              <img src={useImages.rightArrow} alt="rightArrowIcon" className="ml-auto" />
+              <img
+                src={useImages.rightArrow}
+                alt="rightArrowIcon"
+                className="ml-auto"
+              />
             </article>
           </div>
           <div className="flex cursor-pointer items-center justify-between px-6">
@@ -196,13 +215,20 @@ export const UserProfile = () => {
             <img src={useImages.rightArrow} alt="rightArrowIcon" />
           </div>
           <div className="flex cursor-pointer items-center justify-between px-6">
-            <article className="flex items-center gap-5">
+            <article
+              className="flex w-full items-center gap-5"
+              onClick={handleLogOut}
+            >
               <img src={useImages.logout} alt="infoIcon" />
               <p className="text-xl font-normal tracking-wide text-white">
                 Log Out
               </p>
+              <img
+                src={useImages.rightArrow}
+                alt="rightArrowIcon"
+                className="ml-auto"
+              />
             </article>
-            <img src={useImages.rightArrow} alt="rightArrowIcon" />
           </div>
         </footer>
       </main>
