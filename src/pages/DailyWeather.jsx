@@ -9,6 +9,7 @@ import { ByDayWeather } from "@components/ByDayWeather";
 import { ByDaySkelton } from "@components/ByDaySkelton";
 import { ByMonthWeather } from "@components/ByMonthWeather";
 import { useWeatherData } from "@/context/WeatherContext";
+import { ByMonthWeatherSkelton } from "@components/ByMonthWeatherSkelton";
 
 export const DailyWeather = () => {
   const [isHistoryOpen, setIshistoryOpen] = useState(false);
@@ -93,7 +94,7 @@ export const DailyWeather = () => {
               History
             </button>
           </div>
-          <div className="flex h-full flex-col gap-2 overflow-scroll rounded-t-2xl">
+          <div className="flex h-full flex-col gap-2 overflow-scroll">
             {/* Weather box */}
             {currentTab === "day" ? (
               data ? (
@@ -105,7 +106,7 @@ export const DailyWeather = () => {
               data ? (
                 <ByMonthWeather data={data} />
               ) : (
-               ""
+                <ByMonthWeatherSkelton />
               )
             ) : null}
           </div>
