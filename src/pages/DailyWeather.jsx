@@ -1,5 +1,5 @@
 // Libraries;
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Components;
 import { Header } from "@/components/Header";
@@ -16,6 +16,14 @@ export const DailyWeather = () => {
   const toggleHistoryModal = () => {
     setIshistoryOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    const savedTab = localStorage.getItem("savedTab");
+
+    if (savedTab) {
+      setCurrentTab(savedTab);
+    }
+  }, [])
 
   const { data, error } = useWeatherData();
   const months = [
@@ -38,6 +46,8 @@ export const DailyWeather = () => {
   const toggleTab = (time) => {
     setCurrentTab(time);
     setIshistoryOpen(false);
+
+    localStorage.setItem("savedTab", time);
   };
 
   return (
