@@ -17,7 +17,6 @@ export const Footer = () => {
           }
           alt="homeIcon"
           className="w-6 cursor-pointer"
-          loading="lazy"
         />
       </Link>
 
@@ -30,7 +29,6 @@ export const Footer = () => {
           }
           alt="calendarIcon"
           className="w-6 cursor-pointer"
-          loading="lazy"
         />
       </Link>
 
@@ -43,7 +41,6 @@ export const Footer = () => {
           }
           alt="waterlevelIcon"
           className="w-10 translate-x-2 -translate-y-2 transform cursor-pointer"
-          loading="lazy"
         />
       </Link>
 
@@ -56,7 +53,6 @@ export const Footer = () => {
           }
           alt="emergencyIcon"
           className="w-6 -translate-y-0.5 transform cursor-pointer"
-          loading="lazy"
         />
       </Link>
 
@@ -65,7 +61,6 @@ export const Footer = () => {
           src={useImages.radar}
           alt="radarIcon"
           className="w-9 cursor-pointer"
-          loading="lazy"
         />
       </Link>
     </footer>
