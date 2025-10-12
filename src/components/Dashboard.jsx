@@ -107,40 +107,34 @@ export const Dashboard = () => {
           <NavLink
             to="/userProfile"
             onClick={toggleDashboard}
-            className={({ isActive }) =>
-              `text-lightblue flex items-center gap-2 ${isActive ? "bg-navy-lighten rounded-md p-1" : ""}`
-            }
+            className="text-lightblue flex items-center gap-2"
           >
             <img src={useImages.dashboardEdite} alt="editeIcon" />
             <h4 className="text-lightBlue text-xl font-bold tracking-wider">
               Edite profile
             </h4>
           </NavLink>
-          <article className="text-lightblue flex items-center gap-2">
-            <img src={useImages.dashboardwidget} alt="wedgetIcon" />
-            <h4 className="text-lightBlue text-xl font-bold tracking-wider">
-              Customize wedget
-            </h4>
-          </article>
           <hr className="appearence-none border-px border-lightBlue" />
           <NavLink
             to="/setting"
             onClick={toggleDashboard}
-            className={({ isActive }) =>
-              `text-lightblue flex items-center gap-2 ${isActive ? "bg-navy-lighten rounded-md p-1" : ""}`
-            }
+            className="text-lightblue flex items-center gap-2"
           >
             <img src={useImages.dashboardsetting} alt="settingIcon" />
             <h4 className="text-lightBlue text-lg font-bold tracking-wider">
               Settings
             </h4>
           </NavLink>
-          <article className="text-lightblue flex items-center gap-2">
+          <NavLink
+            to="/contactUs"
+            onClick={toggleDashboard}
+            className="text-lightblue flex items-center gap-2"
+          >
             <img src={useImages.dashboardfeedback} alt="feddbackIcon" />
             <h4 className="text-lightBlue text-lg font-bold tracking-wider">
               Send feedback
             </h4>
-          </article>
+          </NavLink>
           <article className="text-lightblue flex items-center gap-2">
             <img src={useImages.dashboardquestion} alt="questionIcon" />
             <h4 className="text-lightBlue text-lg font-bold tracking-wider">

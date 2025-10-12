@@ -122,7 +122,7 @@ export const UserProfile = () => {
         />
 
         <h2 className="text-blue mt-8 text-center text-2xl font-bold tracking-wider">
-          {profile.profileUserName}
+          {profile.profileUserName || "----"}
         </h2>
       </header>
       <main className="mt-4 flex h-full flex-col gap-3">
