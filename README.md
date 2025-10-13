@@ -87,11 +87,18 @@ npm install
 npm run dev
 ```
 
+## Demo preview
 
-## 🌎 API
+### 🌎 API
 This app uses a public weather API [open-meteo](https://open-meteo.com/en/docs) to fetch real-time weather 
 
 ![demo image](/public/output.png)
 
+ 
+## [Online demo](https://react-weather-app-vert-two.vercel.app/)
 
 ### If you like this project, please give it a star ⭐️ on GitHub!
+
+
+[LinkedIn](https://www.linkedin.com/in/mehrandev7) 💼
+[Email me](mailto:mehranmohamadi1311@gmail.com) 📧
