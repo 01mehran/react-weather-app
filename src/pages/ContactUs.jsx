@@ -9,8 +9,6 @@ const URL = "https://api.web3forms.com/submit";
 
 export const ContactUs = () => {
   const navigate = useNavigate();
-  // const [formResponse, setFormResponse] = useState([]);
-
   const [formResponse, setFormResponse] = useState({ message: "", type: "" });
 
   const handleSubmitForm = async (event) => {
@@ -140,7 +138,7 @@ export const ContactUs = () => {
             placeholder="Write your message here"
             className="bg-lightBlue ring-navy transition-ring text-navy flex-1 resize-none rounded-[10px] border-0 px-4 py-4 outline-0 duration-200 placeholder:text-[18px] placeholder:font-normal placeholder:text-black/50 focus:ring-2"
           ></textarea>
-          <input type="submit" className="hidden" />
+          <input type="submit" value="Send" className="border-1 text-navy font-bold border-navy rounded-md px-8 py-1 inline-block w-fit mx-auto cursor-pointer" />
         </form>
       </footer>
     </section>

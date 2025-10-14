@@ -12,6 +12,7 @@ import { DashboardProvider } from "./context/DashboardContext.jsx";
 import { InputSearchProvider } from "./context/InputSearchContext.jsx";
 import { WeatherProvider } from "./context/WeatherContext.jsx";
 import { ShareAppProvider } from "./context/ShareAppContext.jsx";
+import { SettingsProvider } from "./context/SettingsContext.jsx";
 
 const queyClient = new QueryClient();
 
@@ -21,11 +22,13 @@ createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <InputSearchProvider>
           <ShareAppProvider>
-            <WeatherProvider>
-              <DashboardProvider>
-                <App />
-              </DashboardProvider>
-            </WeatherProvider>
+            <SettingsProvider>
+              <WeatherProvider>
+                <DashboardProvider>
+                  <App />
+                </DashboardProvider>
+              </WeatherProvider>
+            </SettingsProvider>
           </ShareAppProvider>
         </InputSearchProvider>
       </BrowserRouter>

@@ -1,12 +1,15 @@
 // Image;
 import { useImages } from "@images/useImages";
+
+// Libraries;
 import { useNavigate } from "react-router-dom";
-import { useToggleDashboard } from "../context/DashboardContext";
+
+// Contexts;
+import { useSettings } from "@/context/SettingsContext";
 
 export const Setting = () => {
-
   const navigate = useNavigate();
-  const {toggleDashboard} = useToggleDashboard()
+  const { hourFormat, handleHourFormat } = useSettings();
 
   return (
     <section className="bg-navy flex h-dvh flex-col">
@@ -44,10 +47,16 @@ export const Setting = () => {
             Time Format
           </h2>
           <div className="flex items-center gap-3">
-            <button className="border-blue text-lightBlue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-sm tracking-wide">
+            <button
+              onClick={() => handleHourFormat("12")}
+              className={`${hourFormat === "12" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-sm tracking-wide transition-all duration-300`}
+            >
               01:00 PM
             </button>
-            <button className="border-blue bg-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-sm tracking-wide text-black/80">
+            <button
+              onClick={() => handleHourFormat("24")}
+              className={`${hourFormat === "24" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-sm tracking-wide text-black/80 transition-all duration-300`}
+            >
               13:00
             </button>
           </div>
@@ -99,8 +108,7 @@ export const Setting = () => {
           </div>
         </article>
       </main>
-      <footer className="mt-8  flex flex-col gap-2 pb-4 h-full">
-        
+      <footer className="mt-8 flex h-full flex-col gap-2 pb-4">
         <article className="bg-navy-dark flex items-center justify-between gap-4 px-6 py-4">
           <label
             htmlFor="daily-notif"
