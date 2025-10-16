@@ -9,7 +9,8 @@ import { useSettings } from "@/context/SettingsContext";
 
 export const Setting = () => {
   const navigate = useNavigate();
-  const { hourFormat, handleHourFormat } = useSettings();
+  const { hourFormat, handleHourFormat, dateFormat, handleDateFormat } =
+    useSettings();
 
   return (
     <section className="bg-navy flex h-dvh flex-col">
@@ -61,13 +62,22 @@ export const Setting = () => {
             </button>
           </div>
           <div className="flex items-center gap-3">
-            <button className="border-blue text-lightBlue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[12px]">
+            <button
+              onClick={() => handleDateFormat("m")}
+              className={` ${dateFormat === "m" ? "bg-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[12px] transition-all duration-300`}
+            >
               mm dd yy
             </button>
-            <button className="border-blue bg-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[12px] text-black/80">
+            <button
+              onClick={() => handleDateFormat("d")}
+              className={`${dateFormat === "d" ? "bg-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[12px] text-black/80 transition-all duration-300`}
+            >
               dd mm yy
             </button>
-            <button className="border-blue text-lightBlue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[12px]">
+            <button
+              onClick={() => handleDateFormat("y")}
+              className={`${dateFormat === "y" ? "bg-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[12px] transition-all duration-300`}
+            >
               yy mm dd
             </button>
           </div>
