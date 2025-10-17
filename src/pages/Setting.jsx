@@ -56,13 +56,13 @@ export const Setting = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleHourFormat("12")}
-              className={`${hourFormat === "12" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-sm tracking-wide transition-all duration-300`}
+              className={`${hourFormat === "12" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border px-[4px] py-[4px] text-sm tracking-wide transition-all duration-300`}
             >
               01:00 PM
             </button>
             <button
               onClick={() => handleHourFormat("24")}
-              className={`${hourFormat === "24" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-sm tracking-wide text-black/80 transition-all duration-300`}
+              className={`${hourFormat === "24" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border px-[4px] py-[4px] text-sm tracking-wide text-black/80 transition-all duration-300`}
             >
               13:00
             </button>
@@ -70,19 +70,19 @@ export const Setting = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleDateFormat("m")}
-              className={` ${dateFormat === "m" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[5px] text-[12px] transition-all duration-300`}
+              className={` ${dateFormat === "m" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border py-[6px] text-[12px] transition-all duration-300`}
             >
               mm dd yy
             </button>
             <button
               onClick={() => handleDateFormat("d")}
-              className={`${dateFormat === "d" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[5px] text-[12px] text-black/80 transition-all duration-300`}
+              className={`${dateFormat === "d" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border py-[6px] text-[12px] text-black/80 transition-all duration-300`}
             >
               dd mm yy
             </button>
             <button
               onClick={() => handleDateFormat("y")}
-              className={`${dateFormat === "y" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[5px] text-[12px] transition-all duration-300`}
+              className={`${dateFormat === "y" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border py-[6px] text-[12px] transition-all duration-300`}
             >
               yy mm dd
             </button>
@@ -121,10 +121,10 @@ export const Setting = () => {
             Pressure
           </h2>
           <div className="flex items-center gap-3">
-            <button className="border-blue text-lightBlue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide">
+            <button className="border-blue text-lightBlue w-[88px] cursor-not-allowed rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide opacity-70">
               psi
             </button>
-            <button className="border-blue text-lightBlue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide">
+            <button className="border-blue text-lightBlue w-[88px] cursor-not-allowed rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide opacity-70">
               bar
             </button>
             <button className="border-blue bg-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide text-black/80">
@@ -133,50 +133,6 @@ export const Setting = () => {
           </div>
         </article>
       </main>
-      <footer className="mt-8 flex h-full flex-col gap-2 pb-4">
-        <article className="bg-navy-dark flex items-center justify-between gap-4 px-6 py-4">
-          <label
-            htmlFor="daily-notif"
-            className="text-lightBlue text-[22px] font-bold tracking-wider"
-          >
-            Daily Notification
-          </label>
-
-          <input
-            type="checkbox"
-            className="border-blue checked:bg-blue before:bg-blue checked:before:bg-navy relative h-7 w-20 cursor-pointer appearance-none rounded-full border-2 transition-all duration-300 before:absolute before:top-1/2 before:left-1 before:size-4 before:-translate-y-1/2 before:rounded-full before:transition-all before:duration-300 before:content-[''] checked:before:right-1 checked:before:left-auto"
-            id="daily-notif"
-          />
-        </article>
-        <article className="bg-navy-dark flex items-center justify-between gap-4 px-6 py-4">
-          <label
-            htmlFor="server-alt"
-            className="text-lightBlue text-[22px] font-bold tracking-wider"
-          >
-            Sever Alerts
-          </label>
-
-          <input
-            type="checkbox"
-            className="border-blue checked:bg-blue before:bg-blue checked:before:bg-navy relative h-7 w-20 cursor-pointer appearance-none rounded-full border-2 before:absolute before:top-1/2 before:left-1 before:size-4 before:-translate-y-1/2 before:rounded-full before:transition-all before:duration-300 before:content-[''] checked:before:right-1 checked:before:left-auto"
-            id="server-alt"
-          />
-        </article>
-        <article className="bg-navy-dark flex items-center justify-between gap-4 px-6 py-4">
-          <label
-            htmlFor="rain-alarm"
-            className="text-lightBlue text-[22px] font-bold tracking-wider"
-          >
-            Rain alarm
-          </label>
-
-          <input
-            type="checkbox"
-            className="border-blue checked:bg-blue before:bg-blue checked:before:bg-navy relative h-7 w-20 cursor-pointer appearance-none rounded-full border-2 before:absolute before:top-1/2 before:left-1 before:size-4 before:-translate-y-1/2 before:rounded-full before:transition-all before:duration-300 before:content-[''] checked:before:right-1 checked:before:left-auto"
-            id="rain-alarm"
-          />
-        </article>
-      </footer>
     </section>
   );
 };
