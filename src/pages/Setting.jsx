@@ -9,8 +9,14 @@ import { useSettings } from "@/context/SettingsContext";
 
 export const Setting = () => {
   const navigate = useNavigate();
-  const { hourFormat, handleHourFormat, dateFormat, handleDateFormat } =
-    useSettings();
+  const {
+    hourFormat,
+    handleHourFormat,
+    dateFormat,
+    handleDateFormat,
+    handleConvertWindSpeed,
+    windSpeedUnit,
+  } = useSettings();
 
   return (
     <section className="bg-navy flex h-dvh flex-col">
@@ -64,19 +70,19 @@ export const Setting = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleDateFormat("m")}
-              className={` ${dateFormat === "m" ? "bg-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[12px] transition-all duration-300`}
+              className={` ${dateFormat === "m" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[5px] text-[12px] transition-all duration-300`}
             >
               mm dd yy
             </button>
             <button
               onClick={() => handleDateFormat("d")}
-              className={`${dateFormat === "d" ? "bg-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[12px] text-black/80 transition-all duration-300`}
+              className={`${dateFormat === "d" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[5px] text-[12px] text-black/80 transition-all duration-300`}
             >
               dd mm yy
             </button>
             <button
               onClick={() => handleDateFormat("y")}
-              className={`${dateFormat === "y" ? "bg-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[12px] transition-all duration-300`}
+              className={`${dateFormat === "y" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} w-[88px] cursor-pointer rounded-full border p-[5px] text-[12px] transition-all duration-300`}
             >
               yy mm dd
             </button>
@@ -89,13 +95,22 @@ export const Setting = () => {
             Wind Speed
           </h2>
           <div className="flex items-center gap-3">
-            <button className="border-blue text-lightBlue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide">
+            <button
+              onClick={() => handleConvertWindSpeed("mph")}
+              className={`${windSpeedUnit === "mph" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
+            >
               mph
             </button>
-            <button className="border-blue bg-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide text-black/80">
+            <button
+              onClick={() => handleConvertWindSpeed("km/h")}
+              className={`${windSpeedUnit === "km/h" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
+            >
               kmh
             </button>
-            <button className="border-blue text-lightBlue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide">
+            <button
+              onClick={() => handleConvertWindSpeed("beaufort")}
+              className={`${windSpeedUnit === "beaufort" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
+            >
               beaufort
             </button>
           </div>

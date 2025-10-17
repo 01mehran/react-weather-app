@@ -7,10 +7,12 @@ import { LandingSkelton } from "@components/LandingSkelton";
 // Images;
 import { GetWeatherIcon } from "@/utils/GetWeatherIcon";
 import { useWeatherData } from "@/context/WeatherContext";
+import { useSettings } from "@/context/SettingsContext";
 
 export const Landing = () => {
-  
   const { data, error, renderLocationName } = useWeatherData();
+  const { convertedWindSpeed, windSpeedUnit } = useSettings();
+  const windSpeed = `${Math.round(convertedWindSpeed || data?.windSpeed)}${windSpeedUnit}`;
 
   return (
     <section className="bg-navy flex h-dvh flex-col">
@@ -61,7 +63,7 @@ export const Landing = () => {
                 {/* Wind; */}
                 <article className="landing-details-box rounded-l-2xl">
                   <div className="small:text-xl text-[5vw] font-bold">
-                    <span>{Math.round(data.windSpeed)}km/h</span>
+                    <span>{windSpeed}</span>
                   </div>
                   <span className="small:text-base text-[3.5vw] font-normal">
                     Wind
@@ -89,8 +91,7 @@ export const Landing = () => {
                 </article>
               </section>
 
-                {data &&   <TodayHourlyWeather data={data.hourlyWeather}/>}
-            
+              {data && <TodayHourlyWeather data={data.hourlyWeather} />}
             </div>
           </div>
         ) : (

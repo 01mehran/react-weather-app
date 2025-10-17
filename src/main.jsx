@@ -22,13 +22,13 @@ createRoot(document.getElementById("root")).render(
       <BrowserRouter>
         <InputSearchProvider>
           <ShareAppProvider>
-            <SettingsProvider>
-              <WeatherProvider>
+            <WeatherProvider>
+              <SettingsProvider>
                 <DashboardProvider>
                   <App />
                 </DashboardProvider>
-              </WeatherProvider>
-            </SettingsProvider>
+              </SettingsProvider>
+            </WeatherProvider>
           </ShareAppProvider>
         </InputSearchProvider>
       </BrowserRouter>
