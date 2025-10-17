@@ -12,8 +12,10 @@ export const SettingsProvider = ({ children }) => {
 
   useEffect(() => {
     const savedHourFormat = localStorage.getItem("hourFormat");
+    const savedWindUnits = localStorage.getItem("windSpeedUnits");
 
     if (savedHourFormat) setHourFormat(savedHourFormat);
+    if (savedWindUnits) setWindSpeedUnit(savedWindUnits);
   }, []);
 
   const handleHourFormat = (hourFormat) => {
@@ -35,7 +37,7 @@ export const SettingsProvider = ({ children }) => {
       case "mph":
         newWindSpeed = windSpeed / 1.609;
         break;
-      case "beaufort":
+      case "bf":
         if (windSpeed < 1) newWindSpeed = 0;
         else if (windSpeed <= 5) newWindSpeed = 1;
         else if (windSpeed <= 11) newWindSpeed = 2;
@@ -55,6 +57,8 @@ export const SettingsProvider = ({ children }) => {
         newWindSpeed = windSpeed;
     }
     setConvertedWindSpeed(newWindSpeed);
+
+    localStorage.setItem("windSpeedUnits", windSpeedUnit);
   };
 
   return (

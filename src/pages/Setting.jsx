@@ -108,8 +108,8 @@ export const Setting = () => {
               kmh
             </button>
             <button
-              onClick={() => handleConvertWindSpeed("beaufort")}
-              className={`${windSpeedUnit === "beaufort" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
+              onClick={() => handleConvertWindSpeed("bf")}
+              className={`${windSpeedUnit === "bf" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
             >
               beaufort
             </button>
