@@ -49,7 +49,10 @@ import cloudy_9 from "./foggy.svg";
 import cloudy_10 from "./lightning.svg";
 import cloudy_11 from "./rain.svg";
 import cloudy_12 from "./snow.svg";
-
+import mapArrowIcon from "./map_arrow.svg";
+import mapLocationIcon from "./map_location.svg";
+import mapTelephoneIcon from "./map_telephone.svg";
+import mapUserIcon from "./map_user.svg";
 
 export const useImages = {
   logo,
@@ -103,4 +106,8 @@ export const useImages = {
   cloudy_10,
   cloudy_11,
   cloudy_12,
+  mapArrowIcon,
+  mapLocationIcon,
+  mapTelephoneIcon,
+  mapUserIcon,
 };
