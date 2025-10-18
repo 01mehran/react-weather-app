@@ -10,7 +10,7 @@ import { SearchBox } from "./SearchBox";
 // Images;
 import { useImages } from "@images/useImages";
 
-export const Header = ({ onHandleSearch, location, setLocation }) => {
+export const Header = () => {
   const { toggleDashboard } = useToggleDashboard();
 
   const [isSearchBoxOpen, setIsSearchBoxOpen] = useState(false);
@@ -25,9 +25,6 @@ export const Header = ({ onHandleSearch, location, setLocation }) => {
       <SearchBox
         isSearchBoxOpen={isSearchBoxOpen}
         toggleSearchBox={toggleSearchBox}
-        // onHandleSearch={onHandleSearch}
-        // location={location}
-        // setLocation={setLocation}
       />
 
       {!isSearchBoxOpen && (

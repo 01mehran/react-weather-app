@@ -71,7 +71,6 @@ export const SettingsProvider = ({ children }) => {
         handleConvertWindSpeed,
         windSpeedUnit,
         convertedWindSpeed,
-        windSpeedUnit,
       }}
     >
       {children}

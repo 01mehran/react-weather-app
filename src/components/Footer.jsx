@@ -44,6 +44,14 @@ export const Footer = () => {
         />
       </Link>
 
+      <Link to="/map">
+        <img
+          src={useImages.radar}
+          alt="radarIcon"
+          className="w-9 cursor-pointer"
+        />
+      </Link>
+
       <Link to="/emergencyContact">
         <img
           src={
@@ -53,14 +61,6 @@ export const Footer = () => {
           }
           alt="emergencyIcon"
           className="w-6 -translate-y-0.5 transform cursor-pointer"
-        />
-      </Link>
-
-      <Link to="/contactUs">
-        <img
-          src={useImages.radar}
-          alt="radarIcon"
-          className="w-9 cursor-pointer"
         />
       </Link>
     </footer>

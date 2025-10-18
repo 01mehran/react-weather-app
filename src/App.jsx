@@ -17,6 +17,7 @@ import { AboutUs } from "./pages/AboutUs";
 import { ScreenSplash } from "./components/ScreenSplash";
 import { EmergencyContact } from "./pages/EmergencyContact";
 import { HourlyWeather } from "./pages/HourlyWeather";
+import { Map } from "./components/Map";
 
 export const App = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -46,6 +47,7 @@ export const App = () => {
           <Route path="/setting" element={<Setting />} />
           <Route path="/emergencyContact" element={<EmergencyContact />} />
           <Route path="/hourlyWeather" element={<HourlyWeather />} />
+          <Route path="/map" element={<Map />} />
         </Routes>
       )}
     </>
