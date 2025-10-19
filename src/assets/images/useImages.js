@@ -53,6 +53,7 @@ import mapArrowIcon from "./map_arrow.svg";
 import mapLocationIcon from "./map_location.svg";
 import mapTelephoneIcon from "./map_telephone.svg";
 import mapUserIcon from "./map_user.svg";
+import mapMarker from "./map_marker.png";
 
 export const useImages = {
   logo,
@@ -110,4 +111,5 @@ export const useImages = {
   mapLocationIcon,
   mapTelephoneIcon,
   mapUserIcon,
+  mapMarker,
 };
