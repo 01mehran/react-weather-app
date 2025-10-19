@@ -4,6 +4,7 @@ import {
   Popup,
   TileLayer,
   useMap,
+  useMapEvents,
   ZoomControl,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -13,7 +14,8 @@ import { Icon } from "leaflet";
 import { useGeoLocation } from "@/hooks/useGeoLocation";
 
 export const Map = () => {
-  const { GetGeoLocation, error, isLoading, position } = useGeoLocation();
+  const { GetGeoLocation, error, isLoading, setPosition, position } =
+    useGeoLocation();
   const navigation = useNavigate();
 
   // Create custom icon;
@@ -26,6 +28,17 @@ export const Map = () => {
   const ChangeMapMarker = ({ position }) => {
     const map = useMap();
     if (position) map.setView(position);
+    return null;
+  };
+
+  // Get location clicking on map;
+  const ClickHandler = () => {
+    useMapEvents({
+      click(e) {
+        const { lat, lng } = e.latlng;
+        setPosition([lat, lng]);
+      },
+    });
     return null;
   };
 
@@ -83,6 +96,8 @@ export const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+        <ClickHandler />
 
         <Marker position={position} icon={customIcon}>
           <Popup>will written</Popup>
