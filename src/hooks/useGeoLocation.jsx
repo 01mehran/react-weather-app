@@ -6,7 +6,6 @@ export const useGeoLocation = () => {
   const [position, setPosition] = useState([27.192486, 56.293636]);
 
   const GetGeoLocation = () => {
-    console.log("Click!");
 
     if (!navigator.geolocation) {
       setError("Your browser does't support geolocation");
@@ -20,7 +19,7 @@ export const useGeoLocation = () => {
           lat: pos.coords.latitude,
           lng: pos.coords.longitude,
         };
-        console.log(pos);
+        
         setPosition([newPos.lat, newPos.lng]);
         setIsLoading(false);
       },

@@ -12,17 +12,26 @@ import { useImages } from "@/assets/images/useImages";
 import { useNavigate } from "react-router-dom";
 import { Icon } from "leaflet";
 import { useGeoLocation } from "@/hooks/useGeoLocation";
+import { useState } from "react";
+import { GetLocationWeather } from "../services/GetLocationWeather";
+import { useInputSearchValue } from "../context/InputSearchContext";
 
 export const Map = () => {
-  const { GetGeoLocation, error, isLoading, setPosition, position } =
+  const { GetGeoLocation, error, setError, isLoading, setPosition, position } =
     useGeoLocation();
   const navigation = useNavigate();
+  const [locationName, setLocatioName] = useState(null);
+  const { setSearch } = useInputSearchValue();
 
   // Create custom icon;
   const customIcon = new Icon({
     iconUrl: `${useImages.mapMarker}`,
     iconSize: [38, 38],
   });
+
+  const isEnglish = (lan) => {
+    return /^[A-Za-z\s]+$/.test(lan);
+  };
 
   //Send marker to current location;
   const ChangeMapMarker = ({ position }) => {
@@ -34,9 +43,29 @@ export const Map = () => {
   // Get location clicking on map;
   const ClickHandler = () => {
     useMapEvents({
-      click(e) {
+      async click(e) {
         const { lat, lng } = e.latlng;
         setPosition([lat, lng]);
+
+        try {
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
+          );
+          const data = await res.json();
+          if (data) {
+            setLocatioName(data?.address);
+
+            let cityname = data?.address?.city;
+            if (!isEnglish(cityname)) return;
+            if (cityname) {
+              setSearch(cityname);
+              await GetLocationWeather(cityname);
+            }
+          }
+        } catch (err) {
+          console.error(err);
+          setError(err.message);
+        }
       },
     });
     return null;
@@ -100,7 +129,9 @@ export const Map = () => {
         <ClickHandler />
 
         <Marker position={position} icon={customIcon}>
-          <Popup>will written</Popup>
+          <Popup>
+            {`${locationName?.country || "country"} ${locationName?.city || "city"}`}
+          </Popup>
         </Marker>
 
         <ChangeMapMarker position={position} />
