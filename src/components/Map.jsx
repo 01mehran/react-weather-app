@@ -21,6 +21,7 @@ export const Map = () => {
     useGeoLocation();
   const navigation = useNavigate();
   const [locationName, setLocatioName] = useState(null);
+  const [city, setCity] = useState("");
   const { setSearch } = useInputSearchValue();
 
   // Create custom icon;
@@ -71,6 +72,28 @@ export const Map = () => {
     return null;
   };
 
+  // Submit;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!city.trim()) return;
+
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${city}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.length > 0) {
+          const { lat, lon, name } = data[0];
+          setPosition([parseFloat(lat), parseFloat(lon)]);
+          setLocatioName({ name });
+          setSearch(name);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+    setCity("");
+  };
+
   return (
     <div className="h-dvh">
       <p className="absolute top-24 right-4 left-4 z-50 text-center text-sm font-medium text-red-700 shadow-sm">
@@ -85,11 +108,15 @@ export const Map = () => {
           onClick={() => navigation(-1)}
         />
         <div className="relative w-full">
-          <input
-            type="text"
-            className="ring-navy h-10 w-full rounded-full border-0 bg-white px-13 font-medium shadow-lg ring-offset-[1px] outline-0 transition-all duration-300 placeholder:text-black/50 focus:ring-2"
-            placeholder="Your location"
-          />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className="ring-navy h-10 w-full rounded-full border-0 bg-white px-13 font-medium shadow-lg ring-offset-[1px] outline-0 transition-all duration-300 placeholder:text-black/50 focus:ring-2"
+              placeholder="Your location"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+            />
+          </form>
           {isLoading ? (
             <p className="border-navy absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 animate-spin rounded-full border-[3px] border-t-transparent"></p>
           ) : (
