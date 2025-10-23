@@ -53,12 +53,19 @@ You can easily search for any city and explore detailed weather information thro
 
 ---
 
+### 🗺 Map
+
+- You can find your location on the map :
+  - by clicking on the map you see your location weather forecast
+  - also you can search on map search box to easily find your city/country
+
 ## 🧰 Technologies Used
 
 - **React**
 - **Tailwind CSS**
 - **React Router**
 - **React Query**
+
 ---
 
 ## ⚙️ Installation & Setup
@@ -90,15 +97,14 @@ npm run dev
 ## Demo preview
 
 ### 🌎 API
-This app uses a public weather API [open-meteo](https://open-meteo.com/en/docs) to fetch real-time weather 
+
+This app uses a public weather API [open-meteo](https://open-meteo.com/en/docs) to fetch real-time weather
 
 ![demo image](/public/output.png)
 
- 
 ## [Online demo](https://react-weather-app-vert-two.vercel.app/)
 
 ### If you like this project, please give it a star ⭐️ on GitHub!
-
 
 [LinkedIn](https://www.linkedin.com/in/mehrandev7) 💼
 [Email me](mailto:mehranmohamadi1311@gmail.com) 📧
