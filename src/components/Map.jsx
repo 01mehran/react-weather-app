@@ -15,14 +15,16 @@ import { useGeoLocation } from "@/hooks/useGeoLocation";
 import { useState } from "react";
 import { GetLocationWeather } from "../services/GetLocationWeather";
 import { useInputSearchValue } from "../context/InputSearchContext";
+import axios from "axios";
 
 export const Map = () => {
   const { GetGeoLocation, error, setError, isLoading, setPosition, position } =
     useGeoLocation();
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   const [locationName, setLocatioName] = useState(null);
   const [city, setCity] = useState("");
   const { setSearch } = useInputSearchValue();
+  const [errorMsg, setErrormsg] = useState("");
 
   // Create custom icon;
   const customIcon = new Icon({
@@ -49,18 +51,24 @@ export const Map = () => {
         setPosition([lat, lng]);
 
         try {
-          const res = await fetch(
+          const { data } = await axios(
             `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
           );
-          const data = await res.json();
           if (data) {
             setLocatioName(data?.address);
 
-            let cityname = data?.address?.city;
-            if (!isEnglish(cityname)) return;
-            if (cityname) {
-              setSearch(cityname);
-              await GetLocationWeather(cityname);
+            let cityName = data?.address?.city;
+            if (!isEnglish(cityName)) {
+              setErrormsg("No data found! search your location");
+
+              setTimeout(() => {
+                setErrormsg("");
+              }, 3000);
+            }
+            if (cityName) {
+              setSearch(cityName);
+              await GetLocationWeather(cityName);
+              navigate("/landingPage");
             }
           }
         } catch (err) {
@@ -73,23 +81,26 @@ export const Map = () => {
   };
 
   // Submit;
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!city.trim()) return;
 
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${city}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.length > 0) {
-          const { lat, lon, name } = data[0];
-          setPosition([parseFloat(lat), parseFloat(lon)]);
-          setLocatioName({ name });
-          setSearch(name);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    try {
+      const { data } = await axios(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${city}`,
+      );
+
+      if (data && data.length > 0) {
+        const { lat, lon, name } = data[0];
+        setPosition([parseFloat(lat), parseFloat(lon)]);
+        setLocatioName({ name });
+        setSearch(name);
+
+        navigate("/landingPage");
+      }
+    } catch (err) {
+      console.error(err);
+    }
 
     setCity("");
   };
@@ -99,13 +110,16 @@ export const Map = () => {
       <p className="absolute top-24 right-4 left-4 z-50 text-center text-sm font-medium text-red-700 shadow-sm">
         {error && error}
       </p>
+      <p className="text-navy absolute top-24 right-4 left-4 z-50 py-2 text-center text-sm font-medium">
+        {errorMsg}
+      </p>
       {/* Search box */}
       <div className="absolute top-8 right-4 left-4 z-50 flex items-center gap-4">
         <img
           src={useImages.mapArrowIcon}
           alt="back arrow"
           className="w-8 cursor-pointer"
-          onClick={() => navigation(-1)}
+          onClick={() => navigate(-1)}
         />
         <div className="relative w-full">
           <form onSubmit={handleSubmit}>

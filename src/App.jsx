@@ -26,7 +26,7 @@ export const App = () => {
     const timer = setTimeout(() => {
       setShowSplash(false);
     }, 1500);
-    return () => clearInterval(timer);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
