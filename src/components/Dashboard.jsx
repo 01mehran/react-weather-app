@@ -111,7 +111,7 @@ export const Dashboard = () => {
           >
             <img src={useImages.dashboardEdite} alt="editeIcon" />
             <h4 className="text-lightBlue text-xl font-bold tracking-wider">
-              Edite profile
+              Edit profile
             </h4>
           </NavLink>
           <hr className="appearence-none border-px border-lightBlue" />

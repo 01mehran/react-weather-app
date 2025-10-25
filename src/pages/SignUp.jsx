@@ -143,7 +143,7 @@ export const SignUp = () => {
               type="submit"
               className={`bg-blue text-navy small:w-54 small:text-xl mx-auto block h-12 w-[50vw] cursor-pointer rounded-[20px] text-[5.5vw] font-bold tracking-wider transition duration-200 hover:translate-y-0.5 ${mutaion.isPending ? "pointer-events-none opacity-50" : ""}`}
             >
-              {mutaion.isPending ? <Spinner /> : "Regester"}
+              {mutaion.isPending ? <Spinner /> : "Register"}
             </button>
             <span className="text-lightBlue">or</span>
           </div>
