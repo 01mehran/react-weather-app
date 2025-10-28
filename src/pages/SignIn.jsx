@@ -44,7 +44,7 @@ export const SignIn = () => {
     }
   }, []);
 
-  const mutation = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: Login,
     onSuccess: (data) => {
       localStorage.setItem("jwt", data.jwt);
@@ -84,7 +84,7 @@ export const SignIn = () => {
       localStorage.removeItem("password");
     }
 
-    mutation.mutate(form);
+    mutate(form);
   };
 
   if (checkingLogin) return null;
@@ -110,7 +110,7 @@ export const SignIn = () => {
             value={form.username}
             onChange={handleChange}
             name="username"
-            disabled={mutation.isPending}
+            disabled={isPending}
           />
           <Input
             id="Password"
@@ -120,7 +120,7 @@ export const SignIn = () => {
             value={form.password}
             onChange={handleChange}
             name="password"
-            disabled={mutation.isPending}
+            disabled={isPending}
           />
           {error && (
             <p
@@ -148,9 +148,9 @@ export const SignIn = () => {
             </div>
             <button
               type="submit"
-              className={`bg-blue text-navy small:w-54 small:text-xl mx-auto block w-[50vw] cursor-pointer rounded-[20px] py-2 text-[5.5vw] font-bold tracking-wider transition duration-200 hover:translate-y-0.5 ${mutation.isPending ? "pointer-events-none opacity-50" : ""}`}
+              className={`bg-blue text-navy small:w-54 small:text-xl mx-auto block w-[50vw] cursor-pointer rounded-[20px] py-2 text-[5.5vw] font-bold tracking-wider transition duration-200 hover:translate-y-0.5 ${isPending ? "pointer-events-none opacity-50" : ""}`}
             >
-              {mutation.isPending ? <Spinner /> : "Sign In"}
+              {isPending ? <Spinner /> : "Sign In"}
             </button>
           </div>
         </form>
