@@ -1,7 +1,7 @@
 // Components;
 import { Input } from "@components/Input";
 import { ToggleButton } from "@components/ToggleButton";
-import { Spinner } from "../components/Spinner";
+import { Spinner } from "@/components/Spinner";
 
 // Libraries
 import { useState } from "react";
@@ -12,7 +12,8 @@ import { useMutation } from "@tanstack/react-query";
 import { useImages } from "@images/useImages";
 
 // Api;
-import { Regester } from "@/services/Regester";
+import { Register } from "@/services/Register";
+import { useValidatePassword } from "@/hooks/useValidatePassword";
 
 export const SignUp = () => {
   const [form, setForm] = useState({
@@ -21,8 +22,8 @@ export const SignUp = () => {
     confirmPassword: "",
   });
 
-  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { validatePassword, error, setError } = useValidatePassword();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,10 +36,9 @@ export const SignUp = () => {
     setError("");
   };
 
-  const mutaion = useMutation({
-    mutationFn: Regester,
+  const { mutate, isPending } = useMutation({
+    mutationFn: Register,
     onSuccess: (data) => {
-
       localStorage.setItem("jwt", data.jwt);
       localStorage.setItem("user", JSON.stringify(data.user));
       setError("You signed-up successfully!");
@@ -62,28 +62,11 @@ export const SignUp = () => {
       return;
     }
 
-    if (form.password !== form.confirmPassword) {
-      setError("password not match!");
-      return;
-    }
-
-    if (form.password.length < 6) {
-      setError("password must be 6");
-      return;
-    }
-
-    if (form.password !== form.confirmPassword) {
-      alert("passwords don't match!");
-      return;
-    }
-    mutaion.mutate(form);
-    setForm({
-      username: "",
-      password: "",
-      confirmPassword: "",
-    });
+    const isValid = validatePassword(form);
+    if (!isValid) return;
+  
+    mutate(form);
     setError("");
-    console.log(mutaion);
   };
 
   return (
@@ -106,7 +89,7 @@ export const SignUp = () => {
               value={form.username}
               onChange={handleChange}
               name="username"
-              disabled={mutaion.isPending}
+              disabled={isPending}
             />
             <Input
               id="password"
@@ -116,7 +99,7 @@ export const SignUp = () => {
               value={form.password}
               onChange={handleChange}
               name="password"
-              disabled={mutaion.isPending}
+              disabled={isPending}
             />
             <Input
               id="confirm Password"
@@ -126,7 +109,7 @@ export const SignUp = () => {
               value={form.confirmPassword}
               onChange={handleChange}
               name="confirmPassword"
-              disabled={mutaion.isPending}
+              disabled={isPending}
             />
           </div>
           {error && (
@@ -141,9 +124,9 @@ export const SignUp = () => {
           <div className="mt-4 space-y-8 text-center">
             <button
               type="submit"
-              className={`bg-blue text-navy small:w-54 small:text-xl mx-auto block h-12 w-[50vw] cursor-pointer rounded-[20px] text-[5.5vw] font-bold tracking-wider transition duration-200 hover:translate-y-0.5 ${mutaion.isPending ? "pointer-events-none opacity-50" : ""}`}
+              className={`bg-blue text-navy small:w-54 small:text-xl mx-auto block h-12 w-[50vw] cursor-pointer rounded-[20px] text-[5.5vw] font-bold tracking-wider transition duration-200 hover:translate-y-0.5 ${isPending ? "pointer-events-none opacity-50" : ""}`}
             >
-              {mutaion.isPending ? <Spinner /> : "Register"}
+              {isPending ? <Spinner /> : "Register"}
             </button>
             <span className="text-lightBlue">or</span>
           </div>
@@ -176,4 +159,3 @@ export const SignUp = () => {
     </section>
   );
 };
-

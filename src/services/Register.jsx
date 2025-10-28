@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URL = "https://strapi.arvanschool.ir/api/auth/local/register";
 
-export const Regester = async ({ username, password }) => {
+export const Register = async ({ username, password }) => {
   const passPart = password.slice(0, 3) || "xyz";
   const email = `${username}${passPart}@test.com`;
 
