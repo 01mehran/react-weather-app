@@ -24,7 +24,7 @@ export const HourlyWeather = () => {
       </p>
       <Header />
       {data ? (
-        <>
+        <div className=" h-full flex flex-col lg:max-w-[800px] md:max-w-[700px] text-center mx-auto w-full xl:translate-x-30">
           <div className="relative flex h-[300px] flex-col gap-4 text-center shadow-2xl">
             <img
               src={useImages.hourlyBg}
@@ -57,7 +57,7 @@ export const HourlyWeather = () => {
 
           <HoursWeather data={data.specificTime}/>
           
-        </>
+        </div>
       ) : <HoursWeatherSkelton />}
 
       <Footer />
