@@ -49,7 +49,7 @@ export const MapSearchBox = () => {
   };
 
   return (
-    <div className="absolute top-8 right-4 left-4 z-50 flex items-center gap-4">
+    <div className="absolute top-8 right-4 left-4 z-50 flex items-center gap-4 xl:left-16">
       <img
         src={useImages.mapArrowIcon}
         alt="back arrow"
@@ -57,7 +57,7 @@ export const MapSearchBox = () => {
         onClick={() => navigate(-1)}
       />
       <div className="relative w-full">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="relative md:mx-auto md:w-2xl">
           <input
             type="text"
             className="ring-navy h-10 w-full rounded-full border-0 bg-white px-13 font-medium shadow-lg ring-offset-[1px] outline-0 transition-all duration-300 placeholder:text-black/50 focus:ring-2"
@@ -65,28 +65,28 @@ export const MapSearchBox = () => {
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-        </form>
-        {isLoading ? (
-          <p className="border-navy absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 animate-spin rounded-full border-[3px] border-t-transparent"></p>
-        ) : (
           <img
-            src={useImages.mapLocationIcon}
-            alt="map location"
-            className="absolute top-1/2 left-4 w-6 -translate-y-1/2 cursor-pointer"
-            onClick={GetGeoLocation}
+            src={useImages.mapTelephoneIcon}
+            alt="microghon icon"
+            className="absolute top-1/2 right-14 -translate-y-1/2 cursor-pointer"
           />
-        )}
-
-        <img
-          src={useImages.mapTelephoneIcon}
-          alt="microghon icon"
-          className="absolute top-1/2 right-14 -translate-y-1/2 cursor-pointer"
-        />
-        <img
-          src={useImages.mapUserIcon}
-          alt="user icon"
-          className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer"
-        />
+          <img
+            src={useImages.mapUserIcon}
+            alt="user icon"
+            className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer"
+          />
+          {isLoading ? (
+            <p className="border-navy absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 animate-spin rounded-full border-[3px] border-t-transparent"></p>
+          ) : (
+            <img
+              src={useImages.mapLocationIcon}
+              alt="map location"
+              className="absolute top-1/2 left-4 w-6 -translate-y-1/2 cursor-pointer"
+              onClick={GetGeoLocation}
+              
+            />
+          )}
+        </form>
       </div>
     </div>
   );

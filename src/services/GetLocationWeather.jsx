@@ -16,7 +16,6 @@ export const GetLocationWeather = async (city) => {
     ) {
       throw new Error("NOT_FOUND");
     }
-    console.log(locationCoordinates);
 
     const { latitude, longitude, name, country } =
       locationCoordinates.data.results[0];
@@ -25,7 +24,6 @@ export const GetLocationWeather = async (city) => {
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=precipitation,relative_humidity_2m,cloudcover,weathercode,temperature_2m,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&forecast_days=16`,
     );
 
-    console.log(locationWeather);
 
     const data = locationWeather.data;
     const currentWeather = data.current_weather;

@@ -23,7 +23,7 @@ export const App = () => {
   const [showSplash, setShowSplash] = useState(true);
   const location = useLocation();
 
-  const hiddenRouts = ["/", "/signUp"];
+  const hiddenRouts = ["/", "/signUp", "/map"];
 
   useEffect(() => {
     const timer = setTimeout(() => {
