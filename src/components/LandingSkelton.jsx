@@ -32,7 +32,7 @@ export const LandingSkelton = () => {
           <div className="landing-skelton-effect mx-auto h-15 w-40"></div>
           <div className="landing-skelton-effect mx-auto h-10 w-60"></div>
           <div className="landing-skelton-effect mx-auto h-10 w-30"></div>
-          <div className="flex h-25 items-baseline justify-between space-x-2 px-4">
+          <div className="flex h-22 items-baseline justify-between space-x-2 px-4">
             <article className="landing-skelton-effect h-full w-1/3 rounded-l-2xl"></article>
             <article className="landing-skelton-effect h-full w-1/3"></article>
             <article className="landing-skelton-effect h-full w-1/3 rounded-r-2xl"></article>
@@ -40,10 +40,10 @@ export const LandingSkelton = () => {
           <div className="px-4 text-left">
             <span className="landing-skelton-effect inline-block h-8 w-20"></span>
             <div className="flex items-center gap-2 overflow-hidden">
-              <div className="landing-skelton-effect h-20 min-w-40"></div>
-              <div className="landing-skelton-effect h-20 min-w-40"></div>
-              <div className="landing-skelton-effect h-20 min-w-40"></div>
-              <div className="landing-skelton-effect h-20 min-w-40"></div>
+              <div className="landing-skelton-effect h-18 min-w-40"></div>
+              <div className="landing-skelton-effect h-18 min-w-40"></div>
+              <div className="landing-skelton-effect h-18 min-w-40"></div>
+              <div className="landing-skelton-effect h-18 min-w-40"></div>
             </div>
           </div>
         </div>

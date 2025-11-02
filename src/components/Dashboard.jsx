@@ -58,7 +58,7 @@ export const Dashboard = () => {
         ></div>
       )}
       <section
-        className={`bg-navy fixed top-0 left-0 z-50 flex h-full w-full max-w-[324px] flex-col transition duration-300 ${isDashboardOpen ? "-translate-x-0" : "-translate-x-full"}`}
+        className={`bg-navy fixed top-0 left-0 z-50 flex h-full w-full max-w-[324px] flex-col transition duration-300 ${isDashboardOpen ? "-translate-x-0" : "-translate-x-full"} xl:-translate-x-0 xl:shadow-[0_4px_10px_rgba(0,0,0,0.3)]`}
       >
         {/* upper */}
         <div

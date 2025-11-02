@@ -1,9 +1,6 @@
 // Images;
 import { GetWeatherIcon } from "@/utils/GetWeatherIcon";
 
-// Contexts;
-import { useSettings } from "@/context/SettingsContext";
-
 // Custom Hook;
 import { useFormatHour } from "@/hooks/useFormatHour";
 
@@ -11,7 +8,7 @@ export const TodayHourlyWeather = ({ data }) => {
   const { formatHour } = useFormatHour();
 
   return (
-    <section className="flex flex-col gap-1 px-4">
+    <section className="flex flex-col gap-1 px-4 xl:mt-4">
       <div>
         <h1 className="text-lightBlue text-xl font-bold">Today</h1>
       </div>

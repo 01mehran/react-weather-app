@@ -1,6 +1,6 @@
 // Libraries;
 import axios from "axios";
-import { WeatherCodeToDescription } from "../utils/WeatherCodeToDescription";
+import { WeatherCodeToDescription } from "@/utils/WeatherCodeToDescription";
 
 export const GetLocationWeather = async (city) => {
   if (!city) return null;
@@ -16,7 +16,7 @@ export const GetLocationWeather = async (city) => {
     ) {
       throw new Error("NOT_FOUND");
     }
-    // console.log(locationCoordinates)
+    console.log(locationCoordinates);
 
     const { latitude, longitude, name, country } =
       locationCoordinates.data.results[0];
@@ -24,6 +24,8 @@ export const GetLocationWeather = async (city) => {
     const locationWeather = await axios.get(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=precipitation,relative_humidity_2m,cloudcover,weathercode,temperature_2m,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto&forecast_days=16`,
     );
+
+    console.log(locationWeather);
 
     const data = locationWeather.data;
     const currentWeather = data.current_weather;
@@ -42,6 +44,7 @@ export const GetLocationWeather = async (city) => {
 
     times.forEach((t, i) => {
       const diff = Math.abs(new Date(t).getTime() - currentTime);
+
       if (diff < minDiff) {
         minDiff = diff;
         closestIndex = i;
@@ -50,7 +53,6 @@ export const GetLocationWeather = async (city) => {
 
     const humidity = humidities[closestIndex];
     const precipitation = precipitations[closestIndex];
-
     const weatherDescription = WeatherCodeToDescription(weatherCode);
 
     // -------- Daily forecast --------//
@@ -87,7 +89,6 @@ export const GetLocationWeather = async (city) => {
       })
       .filter((t) => t.day === today && t.time >= 12 && t.time <= 24);
 
-      
     const specificTime = times
       .map((t, i) => {
         const todayDate = new Date(t);

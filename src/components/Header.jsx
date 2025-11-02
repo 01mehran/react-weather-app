@@ -20,7 +20,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-navy-light relative flex min-h-15 items-center justify-between px-4 py-2">
+    <header className="bg-navy-light relative flex min-h-15 items-center justify-between px-4 py-2 small:max-w-[800px] mx-auto w-full  xl:translate-x-30 xl:bg-transparent">
       {/* Search box */}
       <SearchBox
         isSearchBoxOpen={isSearchBoxOpen}
@@ -33,7 +33,7 @@ export const Header = () => {
             src={useImages.menu}
             alt="menu icon"
             onClick={toggleDashboard}
-            className="w-8 cursor-pointer"
+            className="w-8 cursor-pointer xl:hidden"
           />
           <h2 className="text-lightBlue text-[28px] font-bold">Weather</h2>
           <img

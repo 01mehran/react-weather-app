@@ -9,7 +9,7 @@ export const Footer = () => {
   const currentPath = location.pathname;
 
   return (
-    <footer className="bg-navy-dark fixed right-0 bottom-0 left-0 z-30 flex items-center justify-between px-4">
+    <footer className="bg-navy-dark fixed  bottom-0 z-30 flex items-center justify-between px-4 w-full xl:right-0 xl:top-0 xl:w-fit xl:flex-col xl:justify-around ">
       <Link to="/landingPage">
         <img
           src={

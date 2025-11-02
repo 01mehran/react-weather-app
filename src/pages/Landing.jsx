@@ -25,7 +25,7 @@ export const Landing = () => {
 
       {/* Header */}
       <Header />
-      <main className="small:max-w-[600px] small:mx-auto h-dvh w-full">
+      <main className="small:max-w-[800px] xl:translate-x-30 small:mx-auto h-dvh w-full overflow-hidden">
         {data ? (
           <div className="bg-red- flex h-full flex-col">
             {/* weather icon; */}
@@ -59,13 +59,13 @@ export const Landing = () => {
                 </article>
               </section>
               {/* Wind/Humi/Pre */}
-              <section className="flex items-baseline justify-between space-x-1 px-4">
+              <section className="flex items-baseline justify-between space-x-1 px-4 xl:mt-4">
                 {/* Wind; */}
                 <article className="landing-details-box rounded-l-2xl">
                   <div className="small:text-xl text-[5vw] font-bold">
-                    <span>{windSpeed}</span>
+                    <span className="xl:text-xl">{windSpeed}</span>
                   </div>
-                  <span className="small:text-base text-[3.5vw] font-normal">
+                  <span className="small:text-base text-[3.5vw] xl:text-xl font-normal">
                     Wind
                   </span>
                 </article>
@@ -73,9 +73,9 @@ export const Landing = () => {
                 {/* Humidity */}
                 <article className="landing-details-box">
                   <div className="small:text-xl text-[5vw] font-bold">
-                    <span>{data.humidity}%</span>
+                    <span className="xl:text-xl">{data.humidity}%</span>
                   </div>
-                  <span className="small:text-base text-[3.5vw] font-normal">
+                  <span className="small:text-base text-[3.5vw] xl:text-xl font-normal">
                     Humidity
                   </span>
                 </article>
@@ -83,9 +83,9 @@ export const Landing = () => {
                 {/* Precipitation */}
                 <article className="landing-details-box rounded-r-2xl">
                   <div className="small:text-xl text-[5vw] font-bold">
-                    <span>{data.precipitation}mm</span>
+                    <span className="xl:text-xl">{data.precipitation}mm</span>
                   </div>
-                  <span className="small:text-base text-[3.5vw] font-normal">
+                  <span className="small:text-base text-[3.5vw] font-normal xl:text-xl">
                     Precipitation
                   </span>
                 </article>

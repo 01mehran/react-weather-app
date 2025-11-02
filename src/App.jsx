@@ -1,5 +1,5 @@
 // Libraries;
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 // Pages;
@@ -21,6 +21,9 @@ import { Map } from "./components/Map";
 
 export const App = () => {
   const [showSplash, setShowSplash] = useState(true);
+  const location = useLocation();
+
+  const hiddenRouts = ["/", "/signUp"];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -31,24 +34,26 @@ export const App = () => {
 
   return (
     <>
-      <Dashboard />
-
       {showSplash ? (
         <ScreenSplash />
       ) : (
-        <Routes>
-          <Route path="/" element={<SignIn />} />
-          <Route path="/signUp" element={<SignUp />} />
-          <Route path="/landingPage" element={<Landing />} />
-          <Route path="/dailyWeather" element={<DailyWeather />} />
-          <Route path="/userProfile" element={<UserProfile />} />
-          <Route path="/contactUs" element={<ContactUs />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
-          <Route path="/setting" element={<Setting />} />
-          <Route path="/emergencyContact" element={<EmergencyContact />} />
-          <Route path="/hourlyWeather" element={<HourlyWeather />} />
-          <Route path="/map" element={<Map />} />
-        </Routes>
+        <>
+          {!hiddenRouts.includes(location.pathname) && <Dashboard />}
+
+          <Routes>
+            <Route path="/" element={<SignIn />} />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/landingPage" element={<Landing />} />
+            <Route path="/dailyWeather" element={<DailyWeather />} />
+            <Route path="/userProfile" element={<UserProfile />} />
+            <Route path="/contactUs" element={<ContactUs />} />
+            <Route path="/aboutUs" element={<AboutUs />} />
+            <Route path="/setting" element={<Setting />} />
+            <Route path="/emergencyContact" element={<EmergencyContact />} />
+            <Route path="/hourlyWeather" element={<HourlyWeather />} />
+            <Route path="/map" element={<Map />} />
+          </Routes>
+        </>
       )}
     </>
   );
