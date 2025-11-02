@@ -38,7 +38,7 @@ export const DailyWeather = () => {
     "August",
     "September",
     "October",
-    "Novenber",
+    "November",
     "December",
   ];
   const date = new Date().getMonth();

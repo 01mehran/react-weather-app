@@ -5,7 +5,7 @@ export const ByMonthWeather = ({ data }) => {
 
   return (
     <section>
-      <main className="mx-auto flex h-full w-full max-w-[500px] flex-col">
+      <main className="mx-auto flex h-full w-full max-w-[500px] small:max-w-[800px]  flex-col">
         
         <div>
         {/* Weekays */}
