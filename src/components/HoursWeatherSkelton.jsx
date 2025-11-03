@@ -1,8 +1,8 @@
 export const HoursWeatherSkelton = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden small:max-w-[700px] mx-auto xl:translate-x-30 w-full">
       <div className="landing-skelton-effect m-2 h-[300px]"></div>
-      <section className="flex items-center justify-between gap-4  ">
+      <section className="flex items-center justify-between gap-4">
       {Array.from({ length: 5 }).map((_, i) => (
 
         

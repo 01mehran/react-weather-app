@@ -3,10 +3,7 @@ import { IoClose } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { useInputSearchValue } from "@/context/InputSearchContext";
 
-export const SearchBox = ({
-  isSearchBoxOpen,
-  toggleSearchBox,
-}) => {
+export const SearchBox = ({ isSearchBoxOpen, toggleSearchBox }) => {
   const { location, handleSearch, handleChange } = useInputSearchValue();
   return (
     <div
@@ -14,7 +11,10 @@ export const SearchBox = ({
         isSearchBoxOpen ? "translate-y-0" : "-translate-y-[500px]"
       }`}
     >
-      <form onSubmit={handleSearch} className="relative w-full rounded-xl">
+      <form
+        onSubmit={handleSearch}
+        className="relative mx-auto w-full rounded-xl md:max-w-[800px]"
+      >
         <button
           type="submit"
           className="text-navy bg-blue/90 absolute top-1/2 left-2 flex -translate-y-1/2 cursor-pointer items-center justify-center rounded-full p-1 text-[16px] shadow-md"
