@@ -54,7 +54,7 @@ export const Dashboard = () => {
       {isDashboardOpen && (
         <div
           onClick={toggleDashboard}
-          className="fixed inset-0 z-40 bg-black/70 transition duration-200"
+          className="fixed inset-0 z-40 bg-black/70 transition duration-200 xl:hidden"
         ></div>
       )}
       <section

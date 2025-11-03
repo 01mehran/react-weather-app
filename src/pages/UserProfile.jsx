@@ -81,7 +81,7 @@ export const UserProfile = () => {
   };
 
   return (
-    <section className="bg-navy flex h-dvh w-full flex-col">
+    <section className="mx-auto flex h-dvh w-full flex-col xl:max-w-[800px] xl:translate-x-30 2xl:max-w-[1100px]">
       <header className="relative h-fit">
         <div
           className="bg-fit h-[150px] w-full bg-contain"

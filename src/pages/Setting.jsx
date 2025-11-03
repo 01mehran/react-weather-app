@@ -20,7 +20,7 @@ export const Setting = () => {
 
   return (
     <section className="bg-navy flex h-dvh flex-col">
-      <header className="bg-navy-dark flex items-center space-x-12 py-6 pl-8">
+      <header className="bg-navy-dark flex items-center space-x-12 px-8 py-6 md:justify-between md:px-8 xl:max-w-[800px] xl:translate-x-1/2 xl:bg-transparent">
         <img
           src={useImages.arrow}
           alt="arrowIcon"
@@ -31,7 +31,7 @@ export const Setting = () => {
           Settings
         </h1>
       </header>
-      <main className="mt-1 space-y-2 px-6">
+      <main className="mt-1 space-y-4 px-6 lg:space-y-8 xl:max-w-[800px] xl:translate-x-1/2">
         {/* Theme */}
         <article className="space-y-1">
           <h2 className="text-lightBlue text-[22px] font-bold">Theme</h2>
