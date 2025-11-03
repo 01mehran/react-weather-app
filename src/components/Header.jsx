@@ -20,7 +20,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="bg-navy-light relative flex min-h-15 items-center justify-between px-4 py-2 small:max-w-[800px] mx-auto w-full  xl:translate-x-30 md:bg-transparent 2xl:max-w-[1100px]">
+    <header className="bg-navy-light relative mx-auto flex min-h-15 w-full items-center justify-between px-4 py-2 md:bg-transparent xl:max-w-[800px] xl:translate-x-30 2xl:max-w-[1100px]">
       {/* Search box */}
       <SearchBox
         isSearchBoxOpen={isSearchBoxOpen}

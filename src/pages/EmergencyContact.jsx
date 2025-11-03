@@ -7,7 +7,7 @@ export const EmergencyContact = () => {
 
   return (
     <section className="bg-navy flex min-h-dvh flex-col">
-      <header className="bg-navy-light-2 small:max-w-[800px] mx-auto flex w-full items-center justify-between px-4 py-2 md:bg-transparent xl:translate-x-30 2xl:max-w-[1100px]">
+      <header className="bg-navy-light-2 xl:max-w-[800px] mx-auto flex w-full items-center justify-between px-4 py-2 md:bg-transparent xl:translate-x-30 2xl:max-w-[1100px]">
         <img
           src={useImages.menu}
           alt="arrowIcon"
