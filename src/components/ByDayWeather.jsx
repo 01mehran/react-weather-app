@@ -1,11 +1,10 @@
 import { GetWeatherIcon } from "@/utils/GetWeatherIcon";
-import { useWeatherData } from "../context/WeatherContext";
+import { useWeatherData } from "@/context/WeatherContext";
 
 export const ByDayWeather = ({ data }) => {
-
-const {renderLocationName} = useWeatherData();
+  const { renderLocationName } = useWeatherData();
   return (
-    <div className="grid 2xl:grid-cols-3 gap-5 md:grid-cols-2">
+    <div className="grid gap-5 md:grid-cols-2 2xl:grid-cols-3">
       {data.dailyForecast.map((d) => (
         <div
           className="bg-navy-light-2 sticky top-0 flex items-center justify-between gap-2 rounded-xl px-4"

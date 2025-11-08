@@ -9,9 +9,8 @@ import { useToggleDashboard } from "@/context/DashboardContext";
 import { useImages } from "@images/useImages";
 
 export const Dashboard = () => {
-  const { isDashboardOpen, toggleDashboard, setIsDashboardOpen } =
-    useToggleDashboard();
-  const [userName, setUserName] = useState("");
+  const { isDashboardOpen, toggleDashboard } = useToggleDashboard();
+  const [userName, setUserName] = useState("") ;
   const [userId, setUserId] = useState("");
   const location = useLocation();
   const [image, setImage] = useState(
@@ -78,10 +77,10 @@ export const Dashboard = () => {
             )}
           </div>
           <p className="text-lightBlue absolute top-25 left-6 text-xl font-bold tracking-wider">
-            {userName}
+            {userName || "username"} 
           </p>
           <span className="text-lightBlue font-normmal absolute top-32 left-6 text-sm tracking-wider uppercase">
-            {userId}
+            {userId || "userid"}
           </span>
         </div>
         {/* middle */}

@@ -5,7 +5,7 @@ import { Spinner } from "@/components/Spinner";
 
 // Libraries
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
 
 //Image;
@@ -64,7 +64,7 @@ export const SignUp = () => {
 
     const isValid = validatePassword(form);
     if (!isValid) return;
-  
+
     mutate(form);
     setError("");
   };
@@ -121,13 +121,21 @@ export const SignUp = () => {
           )}
           <ToggleButton />
           {/* Regester button */}
-          <div className="mt-4 space-y-8 text-center">
-            <button
-              type="submit"
-              className={`bg-blue text-navy small:w-54 small:text-xl mx-auto block h-12 w-[50vw] cursor-pointer rounded-[20px] text-[5.5vw] font-bold tracking-wider transition duration-200 hover:translate-y-0.5 ${isPending ? "pointer-events-none opacity-50" : ""}`}
-            >
-              {isPending ? <Spinner /> : "Register"}
-            </button>
+          <div className="mt-4 space-y-4 text-center">
+            <div className="mx-auto flex w-fit flex-col items-center gap-2">
+              <button
+                type="submit"
+                className={`bg-blue text-navy small:w-54 small:text-xl mx-auto block h-12 w-[50vw] cursor-pointer rounded-[20px] text-[5.5vw] font-bold tracking-wider transition duration-200 hover:translate-y-0.5 ${isPending ? "pointer-events-none opacity-50" : ""}`}
+              >
+                {isPending ? <Spinner /> : "Register"}
+              </button>
+              <Link
+                to="/"
+                className="text-blue small:text-base px-2 font-normal tracking-wider"
+              >
+                Sign in
+              </Link>
+            </div>
             <span className="text-lightBlue">or</span>
           </div>
         </form>

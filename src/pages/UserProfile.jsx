@@ -40,8 +40,8 @@ export const UserProfile = () => {
 
     if (file) {
       const reader = new FileReader();
-      reader.onloadend = () => {
-        const based64 = reader.result;
+      reader.onload = () => {
+        let based64 = reader.result;
         setUserProfileImage(based64);
         localStorage.setItem("userProfileImage", based64);
 

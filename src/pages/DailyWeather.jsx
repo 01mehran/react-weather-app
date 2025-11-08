@@ -24,7 +24,7 @@ export const DailyWeather = () => {
     if (savedTab) {
       setCurrentTab(savedTab);
     }
-  }, [])
+  }, []);
 
   const { data, error } = useWeatherData();
   const months = [
@@ -61,7 +61,7 @@ export const DailyWeather = () => {
         </p>
       )}
       <Header />
-      <main className="mx-auto mt-6 flex h-full w-full max-w-[500px] flex-col px-4 small:max-w-[800px] xl:translate-x-30 2xl:max-w-[1100px]">
+      <main className="small:max-w-[800px] mx-auto mt-6 flex h-full w-full max-w-[500px] flex-col px-4 xl:translate-x-30 2xl:max-w-[1100px]">
         {/* Day/Month */}
         <div className="text-lightBlue mb-5">
           <article className="flex items-center justify-between">
