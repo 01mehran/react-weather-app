@@ -10,6 +10,7 @@ import { DailyWeather } from "./pages/DailyWeather";
 import { UserProfile } from "./pages/UserProfile";
 import { ContactUs } from "./pages/ContactUs";
 import { Setting } from "./pages/Setting";
+import { NotFound } from "./pages/NotFound";
 
 // Components;
 import { Dashboard } from "@components/Dashboard";
@@ -23,7 +24,17 @@ export const App = () => {
   const [showSplash, setShowSplash] = useState(true);
   const location = useLocation();
 
-  const hiddenRouts = ["/", "/signUp", "/map"];
+  const customRoutes = [
+    "/landingPage",
+    "/dailyWeather",
+    "/dailyWeather",
+    "/userProfile",
+    "/contactUs",
+    "/aboutUs",
+    "/setting",
+    "/emergencyContact",
+    "/hourlyWeather",
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,7 +49,7 @@ export const App = () => {
         <ScreenSplash />
       ) : (
         <>
-          {!hiddenRouts.includes(location.pathname) && <Dashboard />}
+          {customRoutes.includes(location.pathname) && <Dashboard />}
 
           <Routes>
             <Route path="/" element={<SignIn />} />
@@ -52,6 +63,7 @@ export const App = () => {
             <Route path="/emergencyContact" element={<EmergencyContact />} />
             <Route path="/hourlyWeather" element={<HourlyWeather />} />
             <Route path="/map" element={<Map />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </>
       )}
