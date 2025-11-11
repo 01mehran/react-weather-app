@@ -1,16 +1,15 @@
 // Libraries;
-import  { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 // Images;
 import { useImages } from "@images/useImages";
 
 export const AboutUs = () => {
-
   const navigate = useNavigate();
 
   return (
-    <section className="bg-navy flex h-svh flex-col">
-      <header className="bg-navy-light-2 sticky top-0 flex items-center space-x-12 py-6 pl-8 shadow-xl">
+    <section className="bg-navy mx-auto flex h-svh flex-col xl:max-w-[800px] xl:translate-x-30 2xl:max-w-[1100px]">
+      <header className="bg-navy-light-2 sticky top-0 flex items-center space-x-12 py-6 pl-8 shadow-xl xl:shadow-none md:justify-between md:px-8 xl:bg-transparent">
         <img
           src={useImages.arrow}
           alt="arrowIcon"
