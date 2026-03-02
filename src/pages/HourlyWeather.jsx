@@ -3,7 +3,6 @@ import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import { HoursWeather } from "@components/HoursWeather";
 
-
 // Utils;
 import { GetWeatherIcon } from "@/utils/GetWeatherIcon";
 
@@ -13,19 +12,19 @@ import { useWeatherData } from "@/context/WeatherContext";
 import { HoursWeatherSkelton } from "../components/HoursWeatherSkelton";
 
 export const HourlyWeather = () => {
-  const { data, error, renderLocationName } = useWeatherData(); 
+  const { data, error, renderLocationName } = useWeatherData();
   return (
     <section className="bg-navy flex h-dvh flex-col">
-    {/* error message */}
+      {/* error message */}
       <p
-        className={`absolute top-17 left-1/2 w-4/5 -translate-x-1/2 rounded-sm bg-[#850a0a] px-4 py-1 text-center text-white transition-transform duration-400 ease-in-out md:w-fit ${error ? "translate-y-0" : "-translate-y-[500px]"} z-10`}
+        className={`absolute top-17 left-1/2 w-4/5 -translate-x-1/2 rounded-sm bg-[#850a0a] px-4 py-1 text-center text-white transition-transform duration-400 ease-in-out md:w-fit ${error ? "translate-y-0" : "-translate-y-125"} z-10`}
       >
         {error && `${error.message}`}
       </p>
       <Header />
       {data ? (
-        <div className=" h-full flex flex-col lg:max-w-[800px] md:max-w-[700px] text-center mx-auto w-full xl:translate-x-30 2xl:max-w-[1100px]">
-          <div className="relative flex h-[300px] flex-col gap-4 text-center shadow-2xl">
+        <div className="mx-auto flex h-full w-full flex-col text-center md:max-w-175 lg:max-w-200 xl:translate-x-30 2xl:max-w-275">
+          <div className="relative flex h-75 flex-col gap-4 text-center shadow-2xl">
             <img
               src={useImages.hourlyBg}
               alt="bg"
@@ -36,7 +35,7 @@ export const HourlyWeather = () => {
               <img
                 src={GetWeatherIcon(data.weatherCode)}
                 alt="weather-icon"
-                className="h-[90px] w-[90px]"
+                className="h-22.5 w-22.5"
               />
               <div className="flex translate-y-2 flex-col -space-y-3">
                 <h2 className="text-lightBlue text-[45px] font-bold">
@@ -55,10 +54,11 @@ export const HourlyWeather = () => {
             </div>
           </div>
 
-          <HoursWeather data={data.specificTime}/>
-          
+          <HoursWeather data={data.specificTime} />
         </div>
-      ) : <HoursWeatherSkelton />}
+      ) : (
+        <HoursWeatherSkelton />
+      )}
 
       <Footer />
     </section>

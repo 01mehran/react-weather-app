@@ -92,7 +92,7 @@ export const SignIn = () => {
   return (
     <section className="bg-navy h-vh flex justify-center">
       {/* container */}
-      <div className="w-[500px] border-purple-300 pt-12">
+      <div className="w-125 border-purple-300 pt-12">
         {/* Logo */}
         <header className="w-full">
           <img src={useImages.logo} alt="logo" className="m-auto" />

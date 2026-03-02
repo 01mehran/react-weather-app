@@ -55,18 +55,18 @@ export const DailyWeather = () => {
     <section className="bg-navy flex h-dvh flex-col overflow-hidden">
       {error && (
         <p
-          className={`absolute top-17 left-1/2 w-4/5 -translate-x-1/2 rounded-sm bg-[#850a0a] px-4 py-1 text-center text-white transition-transform duration-400 ease-in-out md:w-fit ${error ? "translate-y-0" : "-translate-y-[500px]"}`}
+          className={`absolute top-17 left-1/2 w-4/5 -translate-x-1/2 rounded-sm bg-[#850a0a] px-4 py-1 text-center text-white transition-transform duration-400 ease-in-out md:w-fit ${error ? "translate-y-0" : "-translate-y-125"}`}
         >
           {error && `${error.message}`}
         </p>
       )}
       <Header />
-      <main className="small:max-w-[800px] mx-auto mt-6 flex h-full w-full max-w-[500px] flex-col px-4 xl:translate-x-30 2xl:max-w-[1100px]">
+      <main className="small:max-w-200 mx-auto mt-6 flex h-full w-full max-w-125 flex-col px-4 xl:translate-x-30 2xl:max-w-275">
         {/* Day/Month */}
         <div className="text-lightBlue mb-5">
           <article className="flex items-center justify-between">
             <h3 className="text-xl font-bold">{month}</h3>
-            <div className="small:w-[220px] border-blue flex w-[60vw] justify-between rounded-full border-[2px]">
+            <div className="small:w-55 border-blue flex w-[60vw] justify-between rounded-full border-2">
               <button
                 onClick={() => toggleTab("day")}
                 className={`${!isHistoryOpen && currentTab === "day" ? "bg-blue text-navy-dark" : "text-lightBlue"} ease small:text-sm text-lightBlue w-1/2 cursor-pointer rounded-full py-2 text-[4vw] font-normal tracking-wider uppercase transition-all duration-300`}

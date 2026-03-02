@@ -8,12 +8,12 @@ export const AboutUs = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-navy mx-auto flex h-svh flex-col xl:max-w-[800px] xl:translate-x-30 2xl:max-w-[1100px]">
+    <section className="bg-navy mx-auto flex h-svh flex-col xl:max-w-200 xl:translate-x-30 2xl:max-w-275">
       <header className="bg-navy-light-2 sticky top-0 flex items-center space-x-12 py-6 pl-8 shadow-xl xl:shadow-none md:justify-between md:px-8 xl:bg-transparent">
         <img
           src={useImages.arrow}
           alt="arrowIcon"
-          className="max-h-[28px] max-w-[28px] cursor-pointer"
+          className="max-h-7 max-w-7 cursor-pointer"
           onClick={() => navigate(-1)}
         />
         <h1 className="text-lightBlue text-3xl font-bold tracking-wider">
@@ -25,7 +25,7 @@ export const AboutUs = () => {
           <h2 className="text-blue text-xl font-bold tracking-wider">
             Who are we?
           </h2>
-          <p className="text-lightBlue text-justify text-[15px] leading-[18px] tracking-wider">
+          <p className="text-lightBlue text-justify text-[15px] leading-4.5 tracking-wider">
             CyberCloud app forecasts weather daily, hourly and monthly. It is a
             weather channel which has accurate weather information. CyberCloud
             detects weather in your current location automatically. CyberCloud
@@ -38,7 +38,7 @@ export const AboutUs = () => {
           <h2 className="text-blue text-xl font-bold tracking-wider">
             Mission
           </h2>
-          <p className="text-lightBlue text-justify text-[15px] leading-[18px] tracking-wider">
+          <p className="text-lightBlue text-justify text-[15px] leading-4.5 tracking-wider">
             To instantly access forecasts, warnings and other useful weather
             information on our mobile phones. To provide the public with
             unprecedented flexibility: users choose the information they want,
@@ -53,7 +53,7 @@ export const AboutUs = () => {
         </article>
         <article className="bg-navy-dark flex flex-col gap-4 px-6 py-4">
           <h2 className="text-blue text-xl font-bold tracking-wider">Vision</h2>
-          <p className="text-lightBlue text-justify text-[15px] leading-[18px] tracking-wider">
+          <p className="text-lightBlue text-justify text-[15px] leading-4.5 tracking-wider">
             We see a world where everybody lacks information about the weather —
             united in the joy of movement. Driven by our passion for informing
             and our instinct for innovation, we aim to bring weather information

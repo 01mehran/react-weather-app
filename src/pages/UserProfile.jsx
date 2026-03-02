@@ -81,10 +81,10 @@ export const UserProfile = () => {
   };
 
   return (
-    <section className="mx-auto flex h-dvh w-full flex-col xl:max-w-[800px] xl:translate-x-30 2xl:max-w-[1100px]">
+    <section className="mx-auto flex h-dvh w-full flex-col xl:max-w-200 xl:translate-x-30 2xl:max-w-275">
       <header className="relative h-fit">
         <div
-          className="bg-fit h-[150px] w-full bg-contain"
+          className="bg-fit h-37.5 w-full bg-contain"
           style={{ backgroundImage: `url(${useImages.dashboardBg})` }}
         ></div>
         <img
@@ -104,13 +104,13 @@ export const UserProfile = () => {
           <img
             src={userProfileImage}
             alt="userIcon"
-            className="bg-navy-dark absolute bottom-7 left-1/2 aspect-1/1 max-w-[85px] -translate-x-1/2 -translate-y-2 rounded-full object-cover p-2 drop-shadow-sm drop-shadow-black/25"
+            className="bg-navy-dark absolute bottom-7 left-1/2 aspect-square max-w-21.25 -translate-x-1/2 -translate-y-2 rounded-full object-cover p-2 drop-shadow-sm drop-shadow-black/25"
           />
         ) : (
           <img
             src={useImages.user2}
             alt="userIcon"
-            className="bg-navy-dark absolute bottom-7 left-1/2 max-w-[65px] -translate-x-1/2 -translate-y-2 rounded-full p-2 drop-shadow-sm drop-shadow-black/25"
+            className="bg-navy-dark absolute bottom-7 left-1/2 max-w-16.25 -translate-x-1/2 -translate-y-2 rounded-full p-2 drop-shadow-sm drop-shadow-black/25"
           />
         )}
         <input
@@ -134,7 +134,7 @@ export const UserProfile = () => {
           </p>
         </article>
         {/* top */}
-        <div className="drop-shadowmd flex flex-col gap-[1px] drop-shadow-black/25">
+        <div className="drop-shadowmd flex flex-col gap-px drop-shadow-black/25">
           <article className="bg-navy-dark flex flex-col gap-0 px-6 py-1">
             <input
               type="text"

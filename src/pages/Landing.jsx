@@ -18,14 +18,14 @@ export const Landing = () => {
     <section className="bg-navy flex h-dvh flex-col">
       {/* Error message; */}
       <p
-        className={`absolute top-17 left-1/2 w-4/5 -translate-x-1/2 rounded-sm bg-[#850a0a] px-4 py-1 text-center text-white transition-transform duration-400 ease-in-out md:w-fit ${error ? "translate-y-0" : "-translate-y-[500px]"}`}
+        className={`absolute top-17 left-1/2 w-4/5 -translate-x-1/2 rounded-sm bg-[#850a0a] px-4 py-1 text-center text-white transition-transform duration-400 ease-in-out md:w-fit ${error ? "translate-y-0" : "-translate-y-125"}`}
       >
         {error && `${error.message}`}
       </p>
 
       {/* Header */}
       <Header />
-      <main className="small:max-w-[800px] xl:translate-x-30 small:mx-auto h-dvh w-full overflow-hidden">
+      <main className="small:max-w-200 xl:translate-x-30 small:mx-auto h-dvh w-full overflow-hidden">
         {data ? (
           <div className="bg-red- flex h-full flex-col">
             {/* weather icon; */}

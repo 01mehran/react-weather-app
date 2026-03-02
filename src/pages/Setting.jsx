@@ -20,18 +20,18 @@ export const Setting = () => {
 
   return (
     <section className="bg-navy flex h-dvh flex-col">
-      <header className="bg-navy-dark flex items-center space-x-12 px-8 py-6 md:justify-between md:px-8 xl:max-w-[800px] xl:translate-x-1/2 xl:bg-transparent">
+      <header className="bg-navy-dark flex items-center space-x-12 px-8 py-6 md:justify-between md:px-8 xl:max-w-200 xl:translate-x-1/2 xl:bg-transparent">
         <img
           src={useImages.arrow}
           alt="arrowIcon"
-          className="max-h-[28px] max-w-[28px] cursor-pointer"
+          className="max-h-7 max-w-7 cursor-pointer"
           onClick={() => navigate(-1)}
         />
         <h1 className="text-lightBlue text-3xl font-bold tracking-wider">
           Settings
         </h1>
       </header>
-      <main className="mt-1 space-y-4 px-6 lg:space-y-8 xl:max-w-[800px] xl:translate-x-1/2">
+      <main className="mt-1 space-y-4 px-6 lg:space-y-8 xl:max-w-200 xl:translate-x-1/2">
         {/* Theme */}
         <article className="space-y-1">
           <h2 className="text-lightBlue text-[22px] font-bold">Theme</h2>
@@ -56,13 +56,13 @@ export const Setting = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleHourFormat("12")}
-              className={`${hourFormat === "12" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border px-[4px] py-[4px] text-sm tracking-wide transition-all duration-300`}
+              className={`${hourFormat === "12" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-22 cursor-pointer rounded-full border px-1 py-1 text-sm tracking-wide transition-all duration-300`}
             >
               01:00 PM
             </button>
             <button
               onClick={() => handleHourFormat("24")}
-              className={`${hourFormat === "24" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border px-[4px] py-[4px] text-sm tracking-wide text-black/80 transition-all duration-300`}
+              className={`${hourFormat === "24" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-22 cursor-pointer rounded-full border px-1 py-1 text-sm tracking-wide text-black/80 transition-all duration-300`}
             >
               13:00
             </button>
@@ -70,19 +70,19 @@ export const Setting = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleDateFormat("m")}
-              className={` ${dateFormat === "m" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border py-[6px] text-[12px] transition-all duration-300`}
+              className={` ${dateFormat === "m" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} border-blue w-22 cursor-pointer rounded-full border py-1.5 text-[12px] transition-all duration-300`}
             >
               mm dd yy
             </button>
             <button
               onClick={() => handleDateFormat("d")}
-              className={`${dateFormat === "d" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border py-[6px] text-[12px] text-black/80 transition-all duration-300`}
+              className={`${dateFormat === "d" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} border-blue w-22 cursor-pointer rounded-full border py-1.5 text-[12px] text-black/80 transition-all duration-300`}
             >
               dd mm yy
             </button>
             <button
               onClick={() => handleDateFormat("y")}
-              className={`${dateFormat === "y" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border py-[6px] text-[12px] transition-all duration-300`}
+              className={`${dateFormat === "y" ? "bg-blue border-blue text-black/80" : "text-lightBlue"} border-blue w-22 cursor-pointer rounded-full border py-1.5 text-[12px] transition-all duration-300`}
             >
               yy mm dd
             </button>
@@ -97,19 +97,19 @@ export const Setting = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={() => handleConvertWindSpeed("mph")}
-              className={`${windSpeedUnit === "mph" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
+              className={`${windSpeedUnit === "mph" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-22 cursor-pointer rounded-full border p-1 px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
             >
               mph
             </button>
             <button
               onClick={() => handleConvertWindSpeed("km/h")}
-              className={`${windSpeedUnit === "km/h" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
+              className={`${windSpeedUnit === "km/h" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-22 cursor-pointer rounded-full border p-1 px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
             >
               kmh
             </button>
             <button
               onClick={() => handleConvertWindSpeed("bf")}
-              className={`${windSpeedUnit === "bf" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
+              className={`${windSpeedUnit === "bf" ? "bg-blue text-black/80" : "text-lightBlue"} border-blue w-22 cursor-pointer rounded-full border p-1 px-2 text-[15px] font-normal tracking-wide transition-all duration-300`}
             >
               beaufort
             </button>
@@ -121,13 +121,13 @@ export const Setting = () => {
             Pressure
           </h2>
           <div className="flex items-center gap-3">
-            <button className="border-blue text-lightBlue w-[88px] cursor-not-allowed rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide opacity-70">
+            <button className="border-blue text-lightBlue w-22 cursor-not-allowed rounded-full border p-1 px-2 text-[15px] font-normal tracking-wide opacity-70">
               psi
             </button>
-            <button className="border-blue text-lightBlue w-[88px] cursor-not-allowed rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide opacity-70">
+            <button className="border-blue text-lightBlue w-22 cursor-not-allowed rounded-full border p-1 px-2 text-[15px] font-normal tracking-wide opacity-70">
               bar
             </button>
-            <button className="border-blue bg-blue w-[88px] cursor-pointer rounded-full border p-[4px] px-2 text-[15px] font-normal tracking-wide text-black/80">
+            <button className="border-blue bg-blue w-22 cursor-pointer rounded-full border p-1 px-2 text-[15px] font-normal tracking-wide text-black/80">
               hps
             </button>
           </div>

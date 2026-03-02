@@ -58,13 +58,13 @@ export const ContactUs = () => {
 
   return (
     <section className="bg-navy flex h-dvh flex-col overflow-y-hidden">
-      <div className="mx-auto w-full xl:max-w-[800px] xl:translate-x-30 2xl:max-w-[1100px]">
+      <div className="mx-auto w-full xl:max-w-200 xl:translate-x-30 2xl:max-w-275">
         <header className="bg-navy-dark flex items-center space-x-12 py-6 pl-8 md:justify-between md:px-8 xl:bg-transparent">
           <div className="cursor-pointer" onClick={() => navigate(-1)}>
             <img
               src={useImages.arrow}
               alt="arrowIcon"
-              className="max-h-[28px] max-w-[28px]"
+              className="max-h-7 max-w-7"
             />
           </div>
           <h1 className="text-lightBlue text-3xl font-bold tracking-wider">
@@ -142,7 +142,7 @@ export const ContactUs = () => {
             <input
               type="submit"
               value="Send"
-              className="text-navy border-navy mx-auto inline-block w-fit cursor-pointer rounded-md border-1 px-8 py-1 font-bold"
+              className="text-navy border-navy mx-auto inline-block w-fit cursor-pointer rounded-md border px-8 py-1 font-bold"
             />
           </form>
         </footer>

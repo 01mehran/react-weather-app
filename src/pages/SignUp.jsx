@@ -71,7 +71,7 @@ export const SignUp = () => {
 
   return (
     <section className="bg-navy flex h-dvh items-center justify-center">
-      <div className="w-[500px]">
+      <div className="w-125">
         {/* title; */}
         <header className="py-10">
           <h1 className="text-lightBlue small:text-3xl text-center text-[8.5vw] font-bold">
@@ -145,21 +145,21 @@ export const SignUp = () => {
             <img
               src={useImages.google}
               alt="googleIcon"
-              className="small:w-[50px] tansform shadow-blue w-[18vw] cursor-pointer rounded-full transition duration-200 hover:scale-110 hover:shadow-[0_0_2px_2px]"
+              className="small:w-12.5 tansform shadow-blue w-[18vw] cursor-pointer rounded-full transition duration-200 hover:scale-110 hover:shadow-[0_0_2px_2px]"
             />
           </a>
           <a href="https://www.facebook.com" target="blank">
             <img
               src={useImages.facebook}
               alt="facebookIcon"
-              className="small:w-[50px] tansform shadow-blue w-[18vw] cursor-pointer rounded-full transition duration-200 hover:scale-110 hover:shadow-[0_0_2px_2px]"
+              className="small:w-12.5 tansform shadow-blue w-[18vw] cursor-pointer rounded-full transition duration-200 hover:scale-110 hover:shadow-[0_0_2px_2px]"
             />
           </a>
           <a href="https://www.twitter.com" target="blank">
             <img
               src={useImages.twitter}
               alt="twitterIcon"
-              className="small:w-[50px] tansform shadow-blue w-[18vw] cursor-pointer rounded-full transition duration-200 hover:scale-110 hover:shadow-[0_0_2px_2px]"
+              className="small:w-12.5 tansform shadow-blue w-[18vw] cursor-pointer rounded-full transition duration-200 hover:scale-110 hover:shadow-[0_0_2px_2px]"
             />
           </a>
         </footer>
