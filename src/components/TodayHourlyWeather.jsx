@@ -18,13 +18,13 @@ export const TodayHourlyWeather = ({ data }) => {
           return (
             <article
               key={i}
-              className={`${i === 0 ? "bg-blue/70 text-navy" : "bg-navy-dark text-lightBlue"} flex min-w-[145px] items-center gap-px space-x-1 rounded-2xl p-2`}
+              className={`${i === 0 ? "bg-blue/70 text-navy" : "bg-navy-dark text-lightBlue"} flex min-w-36.25 items-center gap-px space-x-1 rounded-2xl p-2`}
             >
               <div>
                 <img
                   src={GetWeatherIcon(d.weatherCode)}
                   alt="weatherIcon"
-                  className="w-[91px] -translate-y-2"
+                  className="w-22.75 -translate-y-2"
                 />
               </div>
 

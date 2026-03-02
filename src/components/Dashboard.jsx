@@ -10,7 +10,7 @@ import { useImages } from "@images/useImages";
 
 export const Dashboard = () => {
   const { isDashboardOpen, toggleDashboard } = useToggleDashboard();
-  const [userName, setUserName] = useState("") ;
+  const [userName, setUserName] = useState("");
   const [userId, setUserId] = useState("");
   const location = useLocation();
   const [image, setImage] = useState(
@@ -57,15 +57,15 @@ export const Dashboard = () => {
         ></div>
       )}
       <section
-        className={`bg-navy fixed top-0 left-0 z-50 flex h-full w-full max-w-[324px] flex-col transition duration-300 ${isDashboardOpen ? "-translate-x-0" : "-translate-x-full"} xl:-translate-x-0 xl:shadow-[0_4px_10px_rgba(0,0,0,0.3)]`}
+        className={`bg-navy fixed top-0 left-0 z-50 flex h-full w-full max-w-81 flex-col transition duration-300 ${isDashboardOpen ? "translate-x-0" : "-translate-x-full"} xl:translate-x-0 xl:shadow-[0_4px_10px_rgba(0,0,0,0.3)]`}
       >
         {/* upper */}
         <div
-          className={`relative h-[280px] w-full bg-cover bg-bottom`}
+          className={`relative h-70 w-full bg-cover bg-bottom`}
           style={{ backgroundImage: `url(${useImages.dashboardBg})` }}
         >
           <div className="absolute inset-0 bg-black/40"></div>
-          <div className="absolute top-8 left-4 h-[60px] w-[60px]">
+          <div className="absolute top-8 left-4 h-15 w-15">
             {image ? (
               <img
                 src={image}
@@ -77,7 +77,7 @@ export const Dashboard = () => {
             )}
           </div>
           <p className="text-lightBlue absolute top-25 left-6 text-xl font-bold tracking-wider">
-            {userName || "username"} 
+            {userName || "username"}
           </p>
           <span className="text-lightBlue font-normmal absolute top-32 left-6 text-sm tracking-wider uppercase">
             {userId || "userid"}
@@ -87,10 +87,10 @@ export const Dashboard = () => {
         <div className="space-y-3 px-4 py-3">
           <p className="text-xl font-normal text-white">Weather</p>
           <article className="flex justify-evenly">
-            <span className="bg-blue/50 text-lightBlue flex h-[60px] w-[70px] items-center justify-center text-xl font-bold">
+            <span className="bg-blue/50 text-lightBlue flex h-15 w-17.5 items-center justify-center text-xl font-bold">
               C °
             </span>
-            <span className="text-lightBlue flex h-[60px] w-[70px] items-center justify-center text-xl font-bold">
+            <span className="text-lightBlue flex h-15 w-17.5 items-center justify-center text-xl font-bold">
               F °
             </span>
           </article>

@@ -8,7 +8,7 @@ export const HoursWeather = ({ data }) => {
   const { formatHour } = useFormatHour();
 
   return (
-    <section className="mx-auto small:max-w-[800px] flex w-full flex-1 justify-between px-2 py-4 xl:mx-auto 2xl:max-w-[1100px]">
+    <section className="small:max-w-200 mx-auto flex w-full flex-1 justify-between px-2 py-4 xl:mx-auto 2xl:max-w-275">
       {data &&
         data.map((d, i) => {
           return (

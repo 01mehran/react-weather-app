@@ -60,7 +60,7 @@ export const MapSearchBox = () => {
         <form onSubmit={handleSubmit} className="relative md:mx-auto md:w-2xl">
           <input
             type="text"
-            className="ring-navy h-10 w-full rounded-full border-0 bg-white px-13 font-medium shadow-lg ring-offset-[1px] outline-0 transition-all duration-300 placeholder:text-black/50 focus:ring-2"
+            className="ring-navy h-10 w-full rounded-full border-0 bg-white px-13 font-medium shadow-lg ring-offset-1 outline-0 transition-all duration-300 placeholder:text-black/50 focus:ring-2"
             placeholder="Your location"
             value={city}
             onChange={(e) => setCity(e.target.value)}
@@ -83,7 +83,6 @@ export const MapSearchBox = () => {
               alt="map location"
               className="absolute top-1/2 left-4 w-6 -translate-y-1/2 cursor-pointer"
               onClick={GetGeoLocation}
-              
             />
           )}
         </form>

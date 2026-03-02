@@ -1,12 +1,12 @@
 export const LandingSkelton = () => {
   return (
     <div className="bg-navy">
-      <div className="small:max-w-[600px] small:mx-auto flex flex-col pt-8">
+      <div className="small:max-w-150 small:mx-auto flex flex-col pt-8">
         <div className="flex flex-col gap-4 text-center">
           <div className="to-navy-light-2 justify mx-auto flex h-42 w-42 items-center rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="mx-auto animate-pulse h-full w-full"
+              className="mx-auto h-full w-full animate-pulse"
               viewBox="0 0 24 24"
               fill="none"
               strokeWidth="2"

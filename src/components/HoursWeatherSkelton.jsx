@@ -1,12 +1,13 @@
 export const HoursWeatherSkelton = () => {
   return (
-    <div className="overflow-x-hidden small:max-w-[700px] mx-auto xl:translate-x-30 w-full">
-      <div className="landing-skelton-effect m-2 h-[300px]"></div>
+    <div className="small:max-w-175 mx-auto w-full overflow-x-hidden xl:translate-x-30">
+      <div className="landing-skelton-effect m-2 h-75"></div>
       <section className="flex items-center justify-between gap-4">
-      {Array.from({ length: 5 }).map((_, i) => (
-
-        
-          <div key={i} className="mx-2 flex h-[250px] gap-6 w-fit flex-col items-center justify-between">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div
+            key={i}
+            className="mx-2 flex h-62.5 w-fit flex-col items-center justify-between gap-6"
+          >
             <span className="bg-navy-light-2 h-20 w-1 animate-pulse"></span>
             <div className="h-10 w-10">
               <svg
@@ -36,7 +37,7 @@ export const HoursWeatherSkelton = () => {
             </div>
             <span className="bg-navy-light-2 h-full w-1 animate-pulse"></span>
           </div>
-      ))}
+        ))}
       </section>
     </div>
   );
