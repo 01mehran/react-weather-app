@@ -40,7 +40,7 @@
   }
 
   .landing-skelton-effect {
-    @apply to-navy-light-2 animate-pulse rounded-md bg-gradient-to-r from-[#143158];
+    @apply to-navy-light-2 animate-pulse rounded-md bg-linear-to-r from-[#143158];
   }
 }
 
