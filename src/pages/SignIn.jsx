@@ -162,7 +162,7 @@ export const SignIn = () => {
             Don’t have an account ?
             <Link
               to={"/signUp"}
-              className="text-blue small:text-base px-2 font-normal"
+              className="text-blue small:text-base px-2 text-sm font-medium tracking-wide"
             >
               Sign up
             </Link>

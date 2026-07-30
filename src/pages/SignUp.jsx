@@ -14,6 +14,7 @@ import { useImages } from "@images/useImages";
 // Api;
 import { Register } from "@/services/Register";
 import { useValidatePassword } from "@/hooks/useValidatePassword";
+import { Axios } from "axios";
 
 export const SignUp = () => {
   const [form, setForm] = useState({
@@ -112,57 +113,33 @@ export const SignUp = () => {
               disabled={isPending}
             />
           </div>
-          {error && (
-            <p
-              className={`text-blue small:text-lg absolute left-1/2 mt-2 w-full -translate-x-1/2 text-center text-[5vw] opacity-0 transition-opacity duration-200 ease-in-out ${error && "opacity-100"} `}
-            >
-              {error}
-            </p>
-          )}
-          <ToggleButton />
-          {/* Regester button */}
+
+          {/* Submit Button */}
           <div className="mt-4 space-y-4 text-center">
-            <div className="mx-auto flex w-fit flex-col items-center gap-2">
+            <div className="mx-auto mt-7 flex w-fit flex-col items-center gap-2">
               <button
                 type="submit"
                 className={`bg-blue text-navy small:w-54 small:text-xl mx-auto block h-12 w-[50vw] cursor-pointer rounded-[20px] text-[5.5vw] font-bold tracking-wider transition duration-200 hover:translate-y-0.5 ${isPending ? "pointer-events-none opacity-50" : ""}`}
               >
                 {isPending ? <Spinner /> : "Register"}
               </button>
+
+              {error && (
+                <p
+                  className={`text-blue bg-blue/5 animate-scale-in bottom-12 rounded-full border px-4 py-2 text-sm opacity-0 transition-opacity duration-200 ease-in-out sm:text-base ${error && "opacity-100"} `}
+                >
+                  {error}
+                </p>
+              )}
               <Link
                 to="/"
-                className="text-blue small:text-base px-2 font-normal tracking-wider"
+                className="text-blue small:text-base px-2 text-sm font-medium tracking-wide"
               >
                 Sign in
               </Link>
             </div>
-            <span className="text-lightBlue">or</span>
           </div>
         </form>
-        {/* Socila media icons; */}
-        <footer className="flex justify-center gap-4 py-8">
-          <a href="https://www.google.com" target="blank">
-            <img
-              src={useImages.google}
-              alt="googleIcon"
-              className="small:w-12.5 tansform shadow-blue w-[18vw] cursor-pointer rounded-full transition duration-200 hover:scale-110 hover:shadow-[0_0_2px_2px]"
-            />
-          </a>
-          <a href="https://www.facebook.com" target="blank">
-            <img
-              src={useImages.facebook}
-              alt="facebookIcon"
-              className="small:w-12.5 tansform shadow-blue w-[18vw] cursor-pointer rounded-full transition duration-200 hover:scale-110 hover:shadow-[0_0_2px_2px]"
-            />
-          </a>
-          <a href="https://www.twitter.com" target="blank">
-            <img
-              src={useImages.twitter}
-              alt="twitterIcon"
-              className="small:w-12.5 tansform shadow-blue w-[18vw] cursor-pointer rounded-full transition duration-200 hover:scale-110 hover:shadow-[0_0_2px_2px]"
-            />
-          </a>
-        </footer>
       </div>
     </section>
   );
