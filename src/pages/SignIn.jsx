@@ -54,7 +54,7 @@ export const SignIn = () => {
     },
     onError: (error) => {
       console.error(error);
-      setError("you need to sign-up first " || error.response?.message);
+      setError("You need to sign-up first");
     },
   });
 
@@ -71,10 +71,7 @@ export const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!form.username.trim() || !form.password.trim()) {
-      setError("Fill out all filds!");
-      return;
-    }
+    if (!form.username.trim() || !form.password.trim()) return null;
 
     if (remember) {
       localStorage.setItem("username", form.username);
@@ -90,14 +87,15 @@ export const SignIn = () => {
   if (checkingLogin) return null;
 
   return (
-    <section className="bg-navy h-vh flex justify-center">
+    <section className="bg-navy flex h-svh items-center justify-center">
       {/* container */}
-      <div className="w-125 border-purple-300 pt-12">
+      <div className="w-125 border-purple-300">
         {/* Logo */}
         <header className="w-full">
           <img src={useImages.logo} alt="logo" className="m-auto" />
         </header>
-        {/* Inputs; */}
+
+        {/* Form; */}
         <form
           onSubmit={handleSubmit}
           className="relative w-full space-y-5 px-5"
@@ -122,47 +120,49 @@ export const SignIn = () => {
             name="password"
             disabled={isPending}
           />
-          {error && (
-            <p
-              className={`text-blue small:text-lg absolute left-1/2 w-full -translate-x-1/2 -translate-y-4 text-center text-[5vw] opacity-0 transition-opacity duration-200 ease-in-out ${error && "opacity-100"} `}
-            >
-              {error}
-            </p>
-          )}
-          {/* Remember pass*/}
-          <div className="mt-8 flex flex-col items-center justify-center space-y-8 text-center">
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="rePassword"
-                className="accent-blue cursor-pointer"
-                checked={remember}
-                onChange={(e) => setRemember(e.target.checked)}
-              />
-              <label
-                htmlFor="rePassword"
-                className="small:text-base text-lightBlue text-[5vw] font-normal"
-              >
-                Remember My Password
-              </label>
-            </div>
+
+          {/* Submit Button */}
+          <div className="mt-7 flex flex-col items-center justify-center gap-2 text-center">
             <button
               type="submit"
-              className={`bg-blue text-navy small:w-54 small:text-xl mx-auto block w-[50vw] cursor-pointer rounded-[20px] py-2 text-[5.5vw] font-bold tracking-wider transition duration-200 hover:translate-y-0.5 ${isPending ? "pointer-events-none opacity-50" : ""}`}
+              className={`bg-blue text-navy mx-auto cursor-pointer rounded-[20px] px-14 py-2 text-base font-bold transition duration-200 hover:translate-y-0.5 sm:px-18 sm:text-xl ${isPending ? "pointer-events-none opacity-50" : ""}`}
             >
               {isPending ? <Spinner /> : "Sign In"}
             </button>
+
+            {/* Error  */}
+            {error && (
+              <p
+                className={`text-blue bg-blue/5 animate-scale-in bottom-12 rounded-full border px-4 py-2 text-sm opacity-0 transition-opacity duration-200 ease-in-out sm:text-base ${error && "opacity-100"} `}
+              >
+                {error}
+              </p>
+            )}
           </div>
         </form>
-        <footer className="mt-5 text-center">
-          <span className="small:text-base text-lightBlue text-[5.5vw] font-normal tracking-wider">
-            Forgot password?
-          </span>
+
+        {/* Sign-up & Remember password  */}
+        <footer className="relative mt-5 text-center">
+          <div className="flex items-center justify-center gap-2">
+            <label
+              htmlFor="rePassword"
+              className="small:text-base text-lightBlue text-[5vw] font-normal"
+            >
+              Remember My Password
+            </label>
+            <input
+              type="checkbox"
+              id="rePassword"
+              className="accent-blue cursor-pointer"
+              checked={remember}
+              onChange={(e) => setRemember(e.target.checked)}
+            />
+          </div>
           <div className="small:text-base text-lightBlue text-[5vw] font-normal tracking-wide">
             Don’t have an account ?
             <Link
               to={"/signUp"}
-              className="text-blue small:text-base px-2 font-normal tracking-wider"
+              className="text-blue small:text-base px-2 font-normal"
             >
               Sign up
             </Link>

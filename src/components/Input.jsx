@@ -14,7 +14,7 @@ export const Input = ({
         <img
           src={icon}
           alt={id}
-          className="small:w-[35px] small:h-[35px] h-[25px] w-[25px]"
+          className="small:w-8.75 small:h-8.75 h-6.25 w-6.25"
         />
       )}
 
@@ -28,10 +28,11 @@ export const Input = ({
           onChange={onChange}
           name={name}
           disabled={disabled}
+          required
         />
         <label
           htmlFor={id}
-          className="small:text-base text-lightBlue peer-focus:text-blue absolute top-3 left-2 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+          className="small:text-base text-lightBlue peer-focus:text-blue absolute top-3 left-2 -z-10 origin-left -translate-y-6 scale-75 transform text-sm duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
         >
           {label}
         </label>

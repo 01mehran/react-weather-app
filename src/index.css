@@ -23,6 +23,19 @@
   --color-navy-light-2: oklch(0.3005 0.0839 257.57);
   --color-blue2: oklch(0.8098 0.146596 180.3394);
   --color-navy-lighten: oklch(0.3936 0.1093 264.74);
+
+  --animate-scale-in: scale-in 0.5s ease-out forwards;
+
+  @keyframes scale-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 }
 
 @layer base {
