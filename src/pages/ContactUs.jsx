@@ -77,7 +77,7 @@ export const ContactUs = () => {
               Name
             </span>
             <p className="text-lightBlue text-lg font-bold tracking-wider">
-              CyberCloud Inc.
+              Mehran.Mohamadi
             </p>
           </article>
           <article className="bg-navy-light-2 flex flex-col -space-y-1 px-6 py-3 xl:bg-transparent">
@@ -85,7 +85,7 @@ export const ContactUs = () => {
               Location
             </span>
             <p className="text-lightBlue text-lg font-bold tracking-wider">
-              N.Baclaso Ave. Cebu City
+              Iran, Bandar Abbass
             </p>
           </article>
           <article className="bg-navy-light-2 flex flex-col -space-y-1 px-6 py-3 xl:bg-transparent">
@@ -93,7 +93,7 @@ export const ContactUs = () => {
               Email
             </span>
             <p className="text-lightBlue text-lg font-bold tracking-wider">
-              cybercloud@email.com
+              mehranmohamadi1311@gmail.com
             </p>
           </article>
           <article className="bg-navy-light-2 flex flex-col -space-y-1 px-6 py-3 xl:bg-transparent">
@@ -101,7 +101,7 @@ export const ContactUs = () => {
               Phone
             </span>
             <p className="text-lightBlue text-lg font-bold tracking-wider">
-              +032 5643 3245
+              09035456480
             </p>
           </article>
         </main>

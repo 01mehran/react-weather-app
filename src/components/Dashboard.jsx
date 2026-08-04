@@ -83,18 +83,7 @@ export const Dashboard = () => {
             {userId || "userid"}
           </span>
         </div>
-        {/* middle */}
-        <div className="space-y-3 px-4 py-3">
-          <p className="text-xl font-normal text-white">Weather</p>
-          <article className="flex justify-evenly">
-            <span className="bg-blue/50 text-lightBlue flex h-15 w-17.5 items-center justify-center text-xl font-bold">
-              C °
-            </span>
-            <span className="text-lightBlue flex h-15 w-17.5 items-center justify-center text-xl font-bold">
-              F °
-            </span>
-          </article>
-        </div>
+
         {/* middle lower */}
         <div className="flex h-full flex-col justify-evenly px-6">
           <article className="text-lightblue flex items-center gap-2">
