@@ -32,7 +32,7 @@ export const Input = ({
         />
         <label
           htmlFor={id}
-          className="small:text-base text-lightBlue peer-focus:text-blue absolute top-3 left-2 -z-10 origin-left -translate-y-6 scale-75 transform text-sm duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+          className="small:text-base text-lightBlue peer-focus:text-blue absolute top-3 left-2 -z-10 origin-left -translate-y-6 scale-75 transform text-sm duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-autofill:-translate-y-6 peer-autofill:scale-75 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
         >
           {label}
         </label>

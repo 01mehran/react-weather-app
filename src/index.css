@@ -57,6 +57,20 @@
   }
 }
 
+/* styles for input auto fill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* Text Color */
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  caret-color: var(--color-lightBlue);
+
+  /* Delete white background */
+  -webkit-text-fill-color: var(--color-lightBlue) !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 /* hex colors;
 1_0f284c
 2_caf7ff 

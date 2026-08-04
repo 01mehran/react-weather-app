@@ -205,15 +205,7 @@ export const UserProfile = () => {
               />
             </article>
           </div>
-          <div className="flex cursor-pointer items-center justify-between px-6">
-            <article className="flex items-center gap-3">
-              <img src={useImages.help} alt="infoIcon" />
-              <p className="text-xl font-normal tracking-wide text-white">
-                Help And Support
-              </p>
-            </article>
-            <img src={useImages.rightArrow} alt="rightArrowIcon" />
-          </div>
+
           <div className="flex cursor-pointer items-center justify-between px-6">
             <article
               className="flex w-full items-center gap-5"
